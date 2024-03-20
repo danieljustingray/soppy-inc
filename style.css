@@ -1,5 +1,6 @@
 body {
-  font-family: arial;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
 }
 
 .navbar {
@@ -11,7 +12,7 @@ body {
 .navbar a {
   color: #aaa;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
   padding: 10px;
   text-decoration: none;
 }
