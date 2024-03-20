@@ -1,0 +1,208 @@
+body {
+  font-family: arial;
+}
+
+.navbar {
+  background-color: #313236;
+  border-radius: 2px;
+  max-width: 800px;
+}
+
+.navbar a {
+  color: #aaa;
+  display: inline-block;
+  font-size: 15px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+h1 {
+  color:  black;
+}
+
+.lovelyday { 
+    box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
+    border: none;
+    margin-top: 10px;
+}
+
+.lovelydaytime {
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
+  border: none;
+  margin-top: 10px;
+  width: 99px;
+  background-color: rgb(192, 192, 190);
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 2px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  text-decoration: underline;  
+  color: white;
+}
+
+.topnav a.active {
+  background-color: #000000;
+  color: white;
+}
+header {
+  background-color: rgba(255, 255, 0, 0.611);
+  padding: 30px;
+  text-align: center;
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.825);
+}
+
+nav {
+    background: rgb(196, 196, 196);
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+    padding: 20px;
+    flex: 4;
+    background-color: #f1f1f1;
+    min-height: 40vh; 
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: bottom;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+.dropbtn {
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #000000; color: white;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {
+  background-color: #aaa;
+  color: black;
+}
+
+.page-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
+  box-shadow: 5px 5px 8px #69696d;
+}
+
+.soppysection {
+    display: flex;
+    flex-direction: row;
+}
+
+.jumpits {
+  padding: 100px;
+  flex: 4;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.jumpitdiv {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(0, 0, 0);
+}
+
+.lovelyday:hover {
+  background-color: darkgray;
+  color: black;
+}
+
+.lovelydaytime:hover {
+  background-color: darkgray;
+  color: white;
+}
+.dark-mode {
+  background-color: black;
+}
+.dark-mode {
+  background-color: black;
+}
+.dark-mode article {
+  background-color: black;
+  color: white;
+}
+.dark-mode article h1 {
+  color: white;
+}
+.dark-mode nav {
+  background-color: grey;
+}
+.dark-mode a {color: lightblue;}
+.dark-mode a:hover {color: lightpink;}

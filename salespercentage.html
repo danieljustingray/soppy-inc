@@ -1,0 +1,42 @@
+<title>Daniel - Soppy Inc</title>
+<head>
+  <LINK href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<container class="page-contents">
+<script id="replace_with_navbar" src="nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+<h1>Sales in millions profit (2021)</h1>
+<script>
+var xValues = ["SComputer", "SPhone", "STouchScreen", "SSoftware", "SServices"];
+var yValues = [209, 120, 67, 24, 11];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
+
+</body>

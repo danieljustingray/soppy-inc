@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Soppy Inc. portal</title>
+    <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+</head>
+<body>
+    <h2>Soppy Inc. employee portal</h2>
+    <form id="loginForm" onsubmit="authenticate(event)">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your email" autocomplete="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required><br><br>
+        <input type="submit" value="Login" class="lovelyday">
+    </form>
+    <script>
+        function redirectToIndex() {
+            window.location.href = 'index.html';
+        }
+
+        function authenticate(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const users = [
+                { username: 'daniel.gray@soppyinc.nl', password: 'DanielG1!' },
+                { username: 'info@soppyinc.nl', password: 'DanielG1' },         
+            ];
+
+            const currentUser = users.find(user => user.username === username && user.password === password);
+
+            if (currentUser) {
+                redirectToIndex(); // Redirect to index.html upon successful login
+            } else {
+                alert('Incorrect username or password. Please try again');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

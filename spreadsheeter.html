@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spreadsheet maker - Soppy Inc.</title>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <style>
+    table {
+      border-collapse: collapse;}
+  
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+      width: 100px;
+    }
+  
+    th:first-child {
+      width: 3px;
+      text-align: right;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  
+    td {
+      background-color: #fff;
+    }
+  
+    button {color: black;}
+    
+    button:hover {
+      background-color: lightblue;
+    }
+    body {
+      font-family: Arial;
+    }
+  
+    .selected {
+      background-color: lightblue;
+      border-width: 2px;
+      border-color: black;
+    }
+  
+    .editable {
+      cursor: text;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spreadsheet maker</h1>
+  <table id="excelTable">
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <button id="savePNG">Save as .png</button>
+  <button id="saveJPG">Save as .jpg</button>
+  <button id="saveCSV">Save as .csv</button>
+  <button id="saveTXT">Save as .txt</button>
+  <button id="saveJSON">Save as .json</button>
+  <button id="saveXML">Save as .xml</button>
+  <button id="saveYAML">Save as .yaml</button>
+  <button id="saveHTML">Save as .html</button>
+  <button class="lovelyday" onclick="history.back()">Go Back</button>
+
+  <script>
+    document.getElementById("savePNG").addEventListener("click", () => {
+      saveAsImage("excel_table.png");
+    });
+
+    document.getElementById("saveJPG").addEventListener("click", () => {
+      saveAsImage("excel_table.jpg", "image/jpeg");
+    });
+
+    document.getElementById("saveCSV").addEventListener("click", () => {
+      saveAsText("excel_table.csv", "text/csv");
+    });
+
+    document.getElementById("saveTXT").addEventListener("click", () => {
+      saveAsText("excel_table.txt", "text/plain");
+    });
+
+    document.getElementById("saveJSON").addEventListener("click", () => {
+      saveAsText("excel_table.json", "application/json");
+    });
+
+    document.getElementById("saveXML").addEventListener("click", () => {
+      saveAsText("excel_table.xml", "application/xml");
+    });
+
+    document.getElementById("saveHTML").addEventListener("click", () => {
+      saveAsText("excel_table.html", "text/html");
+    });
+
+    document.getElementById("saveYAML").addEventListener("click", () => {
+      saveAsYAML();
+    });
+
+    function saveAsYAML() {
+      const tableContent = document.getElementById("excelTable").outerHTML;
+      const jsonData = tableToJSON(tableContent);
+      const yamlData = jsyaml.dump(jsonData);
+
+      const blob = new Blob([yamlData], { type: "application/x-yaml" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "excel_table.yaml";
+      link.click();
+    }
+
+    function saveAsImage(fileName, mimeType = "image/png") {
+      const tableElement = document.getElementById("excelTable");
+
+      html2canvas(tableElement, { scale: 2 }).then((canvas) => {
+        const image = canvas.toDataURL(mimeType);
+
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = fileName;
+        link.click();
+      });
+    }
+
+    function saveAsText(fileName, mimeType) {
+      const tableContent = document.getElementById("excelTable").outerHTML;
+
+      const blob = new Blob([tableContent], { type: mimeType });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = fileName;
+      link.click();
+    }
+
+    function tableToJSON(tableContent) {
+      const table = document.getElementById("excelTable");
+      const rows = table.querySelectorAll("tbody tr");
+      const headers = table.querySelectorAll("thead th");
+
+      const jsonData = [];
+
+      rows.forEach((row) => {
+        const rowData = {};
+        const cells = row.querySelectorAll("td");
+
+        cells.forEach((cell, index) => {
+          rowData[headers[index].textContent] = cell.textContent;
+        });
+
+        jsonData.push(rowData);
+      });
+
+      return jsonData;
+    }
+  </script>
+</body>
+</html>

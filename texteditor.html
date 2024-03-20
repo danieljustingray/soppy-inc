@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor - Soppy Inc.</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+        body {
+            font-family: Verdana;
+            margin: 20px;
+        }
+        #editor {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 10px;
+            border: 2px solid black;
+            padding: 5px;
+            overflow-y: auto;
+            resize: both;
+        }        
+        .tab {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .tab button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+        }
+        #formattingTab button.active {
+            background-color: rgb(220, 220, 220);
+            border-style: solid;
+            border-width: 1px;
+            font-size: 18px;
+        }
+        button {color: black;}
+        button:hover {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Editor</h1>
+    <div class="tab">
+        <button onclick="switchTab('formatting')" style="background-color: rgb(220, 220, 220); border-style: solid; border-width: 1px;">Formatting</button>
+        <button onclick="switchTab('file')">File</button>
+        <button onclick="switchTab('references')">References</button>
+    </div>
+    <div id="formattingTab" style="background-color: rgb(220, 220, 220); border-style: solid; border-width: 1px;">
+        <button onclick="formatText('bold')"><img src="text-icons/bold.png" width="20" height="20"></button>
+        <button onclick="formatText('italic')"><img src="text-icons/italic.png" width="20" height="20"></button>
+        <button onclick="formatText('underline')"><img src="text-icons/underline.png" width="20" height="20"></button>
+    </div>
+    <div id="fileTab" style="display: none; background-color: rgb(220, 220, 220); border-style: solid; border-width: 1px;">
+        <button onclick="newFile()">New</button>
+        <button onclick="openFile()">Open</button>
+        <button onclick="showFilePopup()">Save As</button>
+        <div id="filePopup" class="popup">
+            <button onclick="saveFile('txt')">Text</button>
+            <button onclick="saveFile('html')">HTML</button>
+            <button onclick="saveFile('json')">JSON</button>
+            <button onclick="saveFile('xml')">XML</button>
+            <button onclick="saveFile('csv')">CSV</button>
+            <button onclick="hideFilePopup()">Cancel</button>
+        </div>
+    </div>
+    <div id="referencesTab" style="display: none; background-color: rgb(220, 220, 220); border-style: solid; border-width: 1px;">
+        <button onclick="insertCurrentDate()">Insert Current Date</button>
+        <button onclick="insertItalicText()">Insert Current Date in Italic</button>
+    </div>
+
+    <div contenteditable="true" id="editor"></div>   
+    <br>
+    <script>
+        function switchTab(tabName) {
+            document.getElementById('formattingTab').style.display = 'none';
+            document.getElementById('fileTab').style.display = 'none';
+            document.getElementById('referencesTab').style.display = 'none';
+
+            document.querySelectorAll('.tab button').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName + 'Tab').style.display = 'block';
+
+            document.querySelector('.tab button').classList.add('active');
+        }
+
+        switchTab('formatting');
+
+        function newFile() {
+            document.getElementById('editor').innerHTML = '';
+        }
+
+        function openFile() {
+            var input = document.createElement('input');
+            input.type = 'file';
+
+            input.onchange = function (e) {
+                var file = e.target.files[0];
+                if (!file) return;
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('editor').innerHTML = e.target.result;
+                };
+                reader.readAsText(file);
+            };
+
+            input.click();
+        }
+
+        function saveFile(format) {
+            var content = document.getElementById('editor').innerHTML;
+
+            var blob;
+            var fileType;
+
+            switch (format) {
+                case 'txt':
+                    blob = new Blob([content], { type: 'text/plain' });
+                    fileType = 'txt';
+                    break;
+                case 'html':
+                    blob = new Blob([`<html><body>${content}</body></html>`], { type: 'text/html' });
+                    fileType = 'html';
+                    break;
+                case 'json':
+                    try {
+                        JSON.parse(content); // Validate JSON
+                        blob = new Blob([content], { type: 'application/json' });
+                        fileType = 'json';
+                    } catch (error) {
+                        alert('Invalid JSON format. Cannot save as JSON.');
+                        return;
+                    }
+                    break;
+                case 'xml':
+                    blob = new Blob([content], { type: 'application/xml' });
+                    fileType = 'xml';
+                    break;
+                case 'csv':
+                    blob = new Blob([content], { type: 'text/csv' });
+                    fileType = 'csv';
+                    break;
+                default:
+                    alert('Unsupported format.');
+                    return;
+            }
+
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `text_file.${fileType}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function showFilePopup() {
+            document.getElementById('filePopup').style.display = 'block';
+        }
+
+        function hideFilePopup() {
+            document.getElementById('filePopup').style.display = 'none';
+        }
+
+        function formatText(command) {
+            document.execCommand(command, false, null);
+        }
+
+        function insertCurrentDate() {
+            var currentDate = new Date().toLocaleDateString();
+            document.execCommand('insertText', false, currentDate);
+        }
+
+        function insertItalicText() {
+            document.execCommand('italic', false, null);
+        }
+    </script>
+</body>
+</html>

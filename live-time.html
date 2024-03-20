@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live clock - Soppy Inc.</title>
+    <style>
+    	body {
+        	font-family: arial;
+        }
+        body.darkmode {
+            background-color: black;
+            color: yellow;
+        }
+
+        body.regularmode {
+            background-color: yellow;
+            color: black;
+        }
+
+        .darkmode {
+            font-size: 90px;
+        }
+
+        .regularmode {
+            font-size: 90px;
+        }
+        button {
+    box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
+    border: none;
+    margin-top: 10px;
+        }
+        button:hover {
+  	background-color: darkgray;
+  color: black;
+}
+    </style>
+</head>
+<body class="regularmode" onload="startTime()">
+    <p style="font-size: 40px;">Live clock</p>
+    <div class="darkmode" id="txt"></div>
+    <button onclick="toggleMode()">Toggle dark mode / light mode</button>
+    <script>
+        let darkMode = false;
+
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+
+        function toggleMode() {
+            const bodyElement = document.body;
+            if (darkMode) {
+                bodyElement.classList.remove('darkmode');
+                bodyElement.classList.add('regularmode');
+            } else {
+                bodyElement.classList.remove('regularmode');
+                bodyElement.classList.add('darkmode');
+            }
+            darkMode = !darkMode;
+        }
+    </script>
+</body>
+</html>

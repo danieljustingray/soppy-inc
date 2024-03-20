@@ -1,0 +1,127 @@
+<title>Projecten - Soppy Inc< - NL</title>
+<body>
+  <style>
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #000000;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #000000;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="index.html">Ga thuis</a>
+  <a href="projects.html">Projecten</a>
+  <a href="https://soppyinc.gitlab.io/soppy-inc/nl/daniel.html">Daniel</a>
+  <a href="https://soppyinc.gitlab.io/soppy-inc/nl/jumpit.html">Jump it</a>
+  <a href="websiteinfo.html">Website informatica</a>
+  <a href="clawd.html">ClawD</a>
+  <a href="socials.html">Socials (beta)</a>
+  <a href="contact.html">Contact ons</a>
+  <a href="termsconditions.html">Algemeene voorwaarden</a>
+</div>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana;
+}
+
+/* Style the header */
+header {
+  background: linear-gradient(to bottom, #ffff00 0%, #000000 100%);
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: black;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+<header>
+<h1>Projecten</h1>
+</header>
+<article>
+<a href="socials.html">Socials </a>
+</br>
+<a href="jumpit.html">JumpIt</a>
+</br>
+<a href="hoaxy.html">Hoaxy</a>
+</br>
+<a href="clawd.html">ClawD</a>
+</article>
+<nav>
+  <p>.</p>
+</nav>
+<footer>
+    <p>Geef ons tips via: usersoppy@gmail.com</p>
+    <button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Klik me voor tijd en datum.</button>
+<p id="demo"></p>
+</footer>

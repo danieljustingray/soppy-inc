@@ -1,0 +1,48 @@
+<title>Clients - Soppy Inc</title>
+<head>
+  <LINK href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<container class="page-contents">
+<script id="replace_with_navbar" src="nav.js"></script>
+<header>
+<h1>Clients</h1>
+</header>
+<section class="soppysection">
+<article>
+<a href="https://danieljustingray.gitlab.io/witnissing-stream/index.html" target="blank">The church in Burenburg</a>
+<br><br>
+<a href="https://soppyinc.gitlab.io/soppy-inc/SkySavvy/" target="blank">SkySavvy</a>
+<br><br>
+<a href="https://eddotbbr.jouwweb.nl/" target="_blank">Eddotbbr's website</a>
+</article>
+<nav>
+  <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</nav>
+</section>
+<footer>
+    <p>Send us a suggestion at info@soppyinc.nl or tweet us @realsoppyinc</p>
+    <button type="button" class="lovelydaytime"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+<button class="lovelyday" onclick="history.back()">Go Back</button>
+<button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+<button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+<button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+var element = document.body;
+element.classList.toggle("dark-mode");
+}
+</script>
+</footer>
+</container>

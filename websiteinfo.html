@@ -1,0 +1,43 @@
+<html>
+<head>
+  <LINK href="style.css" rel="stylesheet" type="text/css">
+  <title>Site info - Soppy Inc</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+<container class="page-contents">
+<script id="replace_with_navbar" src="nav.js"></script>
+<header>
+<h1>Website information</h1>
+</header>
+<section class="soppysection">
+<article>
+<p>Version 1.17.1</p>
+<p>Last update: 27/02/2024</p>
+<button class="lovelydaytime" onclick="window.location.href='style.css';" style="width: 90px;" target="_blank">CSS file</button>
+<button class="lovelydaytime" onclick="window.location.href='changelog.html';" style="width: 90px;" target="_blank">Changelog</button>
+</article>
+<nav>
+  <button type="button" class="lovelydaytime"
+  onclick="document.getElementById('demo').innerHTML = Date()">
+  Click me to display Date and Time.</button>
+  <p id="demo"></p>
+          <div id="google_translate_element"></div>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</nav>
+</section>
+<footer>
+  <button class="lovelyday" onclick="history.back()">Go Back</button>
+  <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+<button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+<button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+var element = document.body;
+element.classList.toggle("dark-mode");
+}
+</script>
+</footer>
+</container>
+</body>
+</html>

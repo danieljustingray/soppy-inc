@@ -1,0 +1,114 @@
+<head>
+    <title>Meet the team - Soppy Inc</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+        .flip-card {
+            background-color: transparent;
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {transform: rotateY(180deg);}
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .center-container {
+            display: flex;
+            justify-content: center;
+        }
+        .centre {
+            display: block;
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            margin-right: 12.5px;
+        }
+        .centre:hover {
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+<container class="page-contents">
+<script id="replace_with_navbar" src="nav.js"></script>
+<header>
+  <h1>Meet the team</h1>
+</header>
+<section class="soppysection">
+<article>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="staff/danielgray.jpeg" alt="Daniel Gray" style="width:200px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>Daniel Gray</h1> 
+            <p>CEO</p> 
+            <p><q>Soppy Inc. is called Soppy Inc. with a reason, trust me.</q></p><br>
+            <div class="center-container">
+              <a href="mailto:daniel.gray@soppyinc.nl">
+                  <img src="socials/email.png" alt="email" class="centre">
+              </a>
+              <a href="https://danieljustingray.blogspot.com/" target="_blank">
+                  <img src="socials/blogger.png" alt="blogger" class="centre">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</article>
+<nav>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</nav>
+</section>
+<footer>
+  <button class="lovelyday" onclick="history.back()">Go Back</button>
+  <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+  <button type="button" class="lovelydaytime"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+<button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+var element = document.body;
+element.classList.toggle("dark-mode");
+}
+</script>
+<p id="demo"></p>
+</footer>
+</container>

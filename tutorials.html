@@ -1,0 +1,47 @@
+<title>Tutorials - Soppy Inc</title>
+<head>
+  <LINK href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<container class="page-contents">
+<script id="replace_with_navbar" src="nav.js"></script>
+<header>
+<h1>Tutorials</h1>
+</header>
+<section class="soppysection">
+<article>
+<p>If you're learning to program, it's generally recommended you start with HTML. HTML is a markup language, so it has no logic. Meaning, it's not a programming langauge. However, HTML is used to make websites such as this one. <a href="https://soppyinc.blogspot.com/2024/02/tutorials.html" target="_blank">Read more</a></p>
+<br>
+<a href="html-tutorial/index.html">HTML Tutorials</a>
+<br><br>
+</article>
+<nav>
+  <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</nav>
+</section>
+<footer>
+    <p>Send us a suggestion at info@soppyinc.nl or tweet us @realsoppyinc</p>
+    <button type="button" class="lovelydaytime"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+<button class="lovelyday" onclick="history.back()">Go Back</button>
+<button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+<button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+<button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+var element = document.body;
+element.classList.toggle("dark-mode");
+}
+</script>
+</footer>
+</container>

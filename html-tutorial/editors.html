@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <title>Editors - HTML Tutorial - Soppy Inc.</title>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta charset="utf-8">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        .row {
+          display: flex;
+        }
+        .left {
+          flex: 35%;
+          padding: 15px 0;
+        }
+        .left h2 {
+          padding-left: 8px;
+        }
+        #mySearch {
+          width: 100%;
+          font-size: 18px;
+          padding: 11px;
+          border: 1px solid #ddd;
+        }
+        #myMenu {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+        #myMenu li a {
+          padding: 12px;
+          text-decoration: none;
+          color: black;
+          display: block
+        }
+        #myMenu li a:hover {
+          background-color: #eee;
+        }
+        #myMenu li a .active {
+            background-color: rgb(170, 170, 170);
+        }
+        </style>
+</head>
+<body>
+    <container class="page-contents">
+        <header><h2>HTML Editors</h2></header>
+        <section class="soppysection">
+            <nav class="soppynav" style="margin: 0px;">
+                <div class="left" style="background-color:#bbb;">
+                    <h2>Menu</h2>
+                    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search tutorial..." title="Type in a category">
+                    <ul id="myMenu">
+                      <li><a href="index.html">HTML Introduction</a></li>  
+                      <li><a href="editors.html" class="active">HTML Editors</a></li>
+                    </ul>
+                  </div>
+            </nav>
+            <article>
+                <h3>Creating code</h3>
+            </article>
+        </section>
+        <footer>
+            <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+            <button class="lovelyday" onclick="history.back()">Go Back</button>
+            <button class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+            <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+            <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+            <button class="lovelyday" onclick="css()">Remove styling</button>
+        </footer>
+    </container>
+    <script>
+        function myFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("mySearch");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myMenu");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        function iFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+function css() {
+  var element = document.getElementById("body");
+  element.classList.remove("style.css");
+}
+        </script>
+</body>

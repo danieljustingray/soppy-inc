@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schoolcijfer gemiddelde berekenen - Soppy Inc.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Schoolcijfer gemiddelde berekenen</h2>
+    <label for="numbersInput">Cijfers:</label>
+    <input type="text" id="numbersInput" placeholder="Cijfers tussen 1,0 en 10,0">
+    <button onclick="calculateAverage()">Bereken gemiddelde</button>
+    <p id="result"></p>
+    <p id="error"></p>
+    <p>Bij het berekening:</p>
+    <li>Gebruik 'x' voor de weging, bijvoorbeeld [5x2] voor een 5,0 die 2 keer meeteld.</li>
+    <li>Een [;] betekent dat je nog een cijfer doet. Bijvoorbeeld [5x2; 6 = 5,3].</li>
+    <li>Hij gaat getallen onder de 1,0 of 10,0 niet berekenen.</li>
+    <a href="encijferberekenen.html"><img src="eng.png" width="42px" height="42px" alt="English translation"></a>
+    <script>
+        function calculateAverage() {
+            const numbersInput = document.getElementById('numbersInput').value;
+            const expressions = numbersInput.split(';');
+            const numbersArray = expressions.flatMap(expression => {
+                const parts = expression.split('x');
+                const value = parseFloat(parts[0].trim().replace(',', '.'));
+                if (value < 1.0 || value > 10.0) {
+                    document.getElementById('error').innerText = 'Moet tussen de 1,0 of 10,0 staan';
+                    return [];
+                }
+                const repeat = parts.length > 1 ? parseInt(parts[1].trim()) : 1;
+                return Array(repeat).fill(value);
+            });
+            document.getElementById('error').innerText = '';
+            const validNumbers = numbersArray.filter(num => !isNaN(num));
+
+            if (validNumbers.length > 0) {
+                const sum = validNumbers.reduce((acc, num) => acc + num, 0);
+                const average = sum / validNumbers.length;
+
+                const formattedAverage = average.toLocaleString('nl-NL', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+                document.getElementById('result').innerText = `Gemiddelde: ${formattedAverage}`;
+            } else {
+                document.getElementById('result').innerText = 'Vul kloppende getallen in AUB';
+            }
+        }
+    </script>
+</body>
+</html>

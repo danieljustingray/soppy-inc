@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Text Generator</title>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <style>
+      button {
+        color: black;
+      }
+      button:hover {
+        background-color: lightblue;
+      }
+      * {
+          box-sizing: border-box;
+        }
+        .row {
+          display: flex;
+        }
+        .left {
+          flex: 35%;
+          padding: 15px 0;
+        }
+        .left h2 {
+          padding-left: 8px;
+        }
+        #mySearch {
+          width: 100%;
+          font-size: 18px;
+          padding: 11px;
+          border: 1px solid #ddd;
+        }
+        #myMenu {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+        #myMenu li a {
+          padding: 12px;
+          text-decoration: none;
+          color: black;
+          display: block
+        }
+        #myMenu li a:hover {
+          background-color: #eee;
+        }
+        #myMenu li a .active {
+            background-color: #bbb;
+        }
+        .generatedcode {
+            background-color: black;
+            color: limegreen;
+            border: none;
+            box-shadow: 10px 10px 5px gray;
+        }
+    </style>
+</head>
+<body>
+    <container class="page-contents">
+    <header>
+    <h2>HTML Text Generator</h2>
+    </header>
+    <section class="soppysection">
+        <nav class="soppynav" style="margin: 0px;">
+            <div class="left" style="background-color:#bbb;">
+                <h2>Menu</h2>
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search tutorial..." title="Type in a category">
+                <ul id="myMenu">
+                  <li><a href="index.html">HTML Introduction</a></li>  
+                  <li><a href="editors.html">HTML Editors</a></li>
+                </ul>
+              </div>
+        </nav>
+    <article>
+    <label for="inputText">Enter Text:</label>
+    <input type="text" id="inputText" placeholder="Type your text here">
+
+    <label for="elementType">Select Element Type:</label>
+    <select id="elementType">
+        <option value="p">Paragraph (&lt;p&gt;)</option>
+        <option value="h1">Heading 1 (&lt;h1&gt;)</option>
+        <option value="h2">Heading 2 (&lt;h2&gt;)</option>
+        <option value="h3">Heading 3 (&lt;h3&gt;)</option>
+        <option value="h4">Heading 4 (&lt;h4&gt;)</option>
+        <option value="h5">Heading 5 (&lt;h5&gt;)</option>
+        <option value="h6">Heading 6 (&lt;h6&gt;)</option>
+    </select>
+
+    <label for="fontFamily">Select Font:</label>
+    <select id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman (automatic)</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Tahoma">Tahoma</option>
+    </select>
+
+    <label for="fontSize">Select Font Size:</label>
+    <input type="number" id="fontSize" min="1" value="16">
+
+    <label for="textColor">Select Text Color:</label>
+    <input type="color" id="textColor" value="#000000">
+
+    <button onclick="generateHTML()">Generate HTML</button>
+    <button onclick="copyCode()">Copy Code</button>
+        <label for="output">Generated HTML Code:</label>
+    <div class="generatedcode">
+        <pre id="output"></pre>
+    </div>
+    <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default" target="_blank">Try it!</a>
+    <li>You can use * to signify <b>bold</b> text. For example, *text* = <b>text</b></li>
+    </article>
+    </section>
+    <footer>
+        <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+        <button class="lovelyday" onclick="history.back()">Go Back</button>
+        <button class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+        <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+        <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+    </footer>
+    </container>
+    <script>
+        function generateHTML() {
+            const inputText = document.getElementById("inputText").value;
+            const elementType = document.getElementById("elementType").value;
+            const fontFamily = document.getElementById("fontFamily").value;
+            const fontSize = document.getElementById("fontSize").value;
+            const textColor = document.getElementById("textColor").value;
+
+            const rgbColor = hexToRgb(textColor);
+
+            let htmlCode;
+
+            if (elementType === 'p') {
+                htmlCode = `<p style="font-family: ${fontFamily}; font-size: ${fontSize}px; color: rgb(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b});">${applyBold(inputText)}</p>`;
+            } else {
+                const headingLevel = elementType.substring(1); // Extract the heading level
+                htmlCode = `<h${headingLevel} style="font-family: ${fontFamily}; font-size: ${fontSize}px; color: rgb(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b});">${applyBold(inputText)}</h${headingLevel}>`;
+            }
+
+            const outputElement = document.getElementById("output");
+            outputElement.textContent = htmlCode;
+        }
+
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return { r, g, b };
+        }
+
+        function applyBold(text) {
+            return text.replace(/\*(.*?)\*/g, '<b>$1</b>');
+        }
+
+        function copyCode() {
+            const outputElement = document.getElementById("output");
+            const codeToCopy = outputElement.textContent;
+
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = codeToCopy;
+            document.body.appendChild(tempTextArea);
+
+            tempTextArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempTextArea);
+
+            alert("Code Copied!");
+        }
+        function myFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("mySearch");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myMenu");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        function iFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+    </script>
+</body>
+</html>

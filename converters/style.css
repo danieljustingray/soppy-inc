@@ -1,0 +1,6 @@
+body {
+    font-family: Arial;
+    background-color: #f1f1f1;
+}
+a {color: blue;}
+a:hover {color: purple;}

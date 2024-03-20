@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dutch mark average calculator - Soppy Inc.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Dutch mark average calculator</h2>
+    <label for="numbersInput">Marks:</label>
+    <input type="text" id="numbersInput" placeholder="Marks between 1.0 and 10.0">
+    <button onclick="calculateAverage()">Calculate average</button>
+    <p id="result"></p>
+    <p id="error"></p>
+    <p>During the calculation:</p>
+    <li>Use 'x' for the weight, per example [5x2] for a 5.0 that counts 2 times.</li>
+    <li>A [;] means that you're adding another mark. Per example [5x2; 6 = 5.3].</li>
+    <li>It won't calculate marks under or above the range 1.0 - 10.0.</li>
+    <p>The calculator will accept comma numbers and dot numbers.</p>
+    <a href="nlcijferberekenen.html"><img src="nl.png" width="42px" height="42px" alt="Nederlands"></a>
+    <script>
+        function calculateAverage() {
+            const numbersInput = document.getElementById('numbersInput').value;
+            const expressions = numbersInput.split(';');
+            const numbersArray = expressions.flatMap(expression => {
+                const parts = expression.split('x');
+                const value = parseFloat(parts[0].trim().replace(',', '.'));
+                if (value < 1.0 || value > 10.0) {
+                    document.getElementById('error').innerText = 'Moet tussen de 1,0 of 10,0 staan';
+                    return [];
+                }
+                const repeat = parts.length > 1 ? parseInt(parts[1].trim()) : 1;
+                return Array(repeat).fill(value);
+            });
+            document.getElementById('error').innerText = '';
+            const validNumbers = numbersArray.filter(num => !isNaN(num));
+
+            if (validNumbers.length > 0) {
+                const sum = validNumbers.reduce((acc, num) => acc + num, 0);
+                const average = sum / validNumbers.length;
+
+                const formattedAverage = average.toLocaleString('nl-NL', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+                document.getElementById('result').innerText = `Gemiddelde: ${formattedAverage}`;
+            } else {
+                document.getElementById('result').innerText = 'Vul kloppende getallen in AUB';
+            }
+        }
+    </script>
+</body>
+</html>

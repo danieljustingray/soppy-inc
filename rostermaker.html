@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Roster maker - Soppy Inc.</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            border: 1px solid black;
+            width: 400px;
+            height: 300px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            grid-gap: 5px;
+            padding: 5px;
+            position: relative;
+        }
+
+        .box {
+            width: 40px;
+            height: 40px;
+            border: 1px solid blue;
+            padding-top: 0px;
+            cursor: grab;
+            position: absolute;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .numbering,
+        .day {
+            z-index: 1;
+            position: relative;
+        }
+
+        .numbering {
+            text-align: right;
+            padding-right: 5px;
+            grid-column: 1;
+            grid-row: span 1;
+        }
+
+        .day {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .grid-line {
+            border: 1px solid lightgray;
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var draggedElement = document.getElementById(data);
+
+            if (draggedElement.classList.contains("box")) {
+                var rect = document.getElementById("div1").getBoundingClientRect();
+                var x = ev.clientX - rect.left - draggedElement.clientWidth / 2;
+                var y = ev.clientY - rect.top - draggedElement.clientHeight / 2;
+
+                x = Math.max(0, Math.min(rect.width - draggedElement.clientWidth, x));
+                y = Math.max(0, Math.min(rect.height - draggedElement.clientHeight, y));
+
+                draggedElement.style.left = x + "px";
+                draggedElement.style.top = y + "px";
+            }
+        }
+
+        function createBox() {
+            var newBoxText = document.getElementById("newBoxText").value.trim();
+
+            if (newBoxText !== "") {
+                var newBox = document.createElement("div");
+                newBox.className = "box";
+                newBox.draggable = true;
+                newBox.innerText = newBoxText;
+                newBox.style.left = "0px";
+                newBox.style.top = "0px";
+
+                newBox.addEventListener("mousedown", function (e) {
+                    startDragging(this, e);
+                });
+
+                document.getElementById("div1").appendChild(newBox);
+
+                document.getElementById("newBoxText").value = "";
+            }
+        }
+
+        function startDragging(element, event) {
+            var offsetX = event.clientX - element.getBoundingClientRect().left;
+            var offsetY = event.clientY - element.getBoundingClientRect().top;
+
+            function moveElement(event) {
+                var x = event.clientX - offsetX;
+                var y = event.clientY - offsetY;
+
+                x = Math.max(0, Math.min(element.parentElement.offsetWidth - element.offsetWidth, x));
+                y = Math.max(0, Math.min(element.parentElement.offsetHeight - element.offsetHeight, y));
+
+                element.style.left = x + "px";
+                element.style.top = y + "px";
+            }
+
+            function stopMoving() {
+                document.removeEventListener("mousemove", moveElement);
+                document.removeEventListener("mouseup", stopMoving);
+            }
+
+            document.addEventListener("mousemove", moveElement);
+            document.addEventListener("mouseup", stopMoving);
+        }
+
+        function resetBox() {
+            var boxes = document.getElementsByClassName("box");
+            while (boxes.length > 0) {
+                boxes[0].parentNode.removeChild(boxes[0]);
+            }
+        }
+
+        function saveAsImage() {
+            var container = document.getElementById("div1");
+            html2canvas(container).then(function (canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                var link = document.createElement('a');
+                link.href = imgData;
+                link.download = 'mySchedule.png';
+                link.click();
+            });
+        }
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <h1>Roster maker</h1>
+    <p>Drag the lessons</p>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="day"></div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+
+        <div class="numbering">1</div>
+        <div class="numbering">2</div>
+        <div class="numbering">3</div>
+        <div class="numbering">4</div>
+        <div class="numbering">5</div>
+        <div class="numbering">6</div>
+        <div class="numbering">7</div>
+        <div class="numbering">8</div>
+        <div class="numbering">9</div>
+        <div class="numbering">10</div>
+
+        <div class="grid-line" style="left: 16.666%; height: 100%;"></div>
+        <div class="grid-line" style="left: 33.333%; height: 100%;"></div>
+        <div class="grid-line" style="left: 50%; height: 100%;"></div>
+        <div class="grid-line" style="left: 66.666%; height: 100%;"></div>
+        <div class="grid-line" style="left: 83.333%; height: 100%;"></div>
+
+        <div class="grid-line" style="top: 10%; width: 100%;"></div>
+        <div class="grid-line" style="top: 20%; width: 100%;"></div>
+        <div class="grid-line" style="top: 30%; width: 100%;"></div>
+        <div class="grid-line" style="top: 40%; width: 100%;"></div>
+        <div class="grid-line" style="top: 50%; width: 100%;"></div>
+        <div class="grid-line" style="top: 60%; width: 100%;"></div>
+        <div class="grid-line" style="top: 70%; width: 100%;"></div>
+        <div class="grid-line" style="top: 80%; width: 100%;"></div>
+        <div class="grid-line" style="top: 90%; width: 100%;"></div>
+    </div>
+    <input type="text" id="newBoxText" placeholder="Enter text for new box">
+    <button onclick="createBox()">Create New Box</button>
+    <button onclick="saveAsImage()">Save as Image</button>
+    <button onclick="resetBox()">Reset Boxes</button>
+    <h2>Instructions</h2>
+    <p>Above is a school roster maker.</p>
+    <p>Steps</p>
+    <ol>
+        <li>Enter the name of the subject.</li>
+        <li>Drag it around.</li>
+        <li>When you're done, save it as an image.</li>
+        <li>If you need to reset the entered boxes, hit "Reset Boxes".</li>
+    </ol>
+    <p>We highly recommend doing this on a pc.</p>
+</body>
+
+</html>

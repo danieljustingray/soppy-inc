@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <title>HTML Tutorial - Soppy Inc.</title>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta charset="utf-8">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        .row {
+          display: flex;
+        }
+        .left {
+          flex: 35%;
+          padding: 15px 0;
+        }
+        .left h2 {
+          padding-left: 8px;
+        }
+        #mySearch {
+          width: 100%;
+          font-size: 18px;
+          padding: 11px;
+          border: 1px solid #ddd;
+        }
+        #myMenu {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+        #myMenu li a {
+          padding: 12px;
+          text-decoration: none;
+          color: black;
+          display: block
+        }
+        #myMenu li a:hover {
+          background-color: #eee;
+        }
+        #myMenu li a .active {
+            background-color: #bbb;
+        }
+        .attname {
+          color: red;
+          background-color: #ddd;
+        }
+        #codeblock {
+          background-color: black;
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    <container class="page-contents">
+        <header><h2>HTML Basics</h2></header>
+        <section class="soppysection">
+            <nav class="soppynav" style="margin: 0px;">
+                <div class="left" style="background-color:#bbb;">
+                    <h2>Menu</h2>
+                    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search tutorial..." title="Type in a category">
+                    <ul id="myMenu">
+                      <li><a href="index.html" class="active">HTML Introduction</a></li>  
+                      <li><a href="editors.html">HTML Editors</a></li>
+                    </ul>
+                  </div>
+            </nav>
+            <article>
+                <p>HTML stands for Hypertext markup language. HTML is <em>not</em> a programming language. HTML is a markup language, meaning it has no logic. Computer languages with logic are called programming languages, such as JavaScript or Python.</p>
+                <p>HTML is standard for creating webpages. This entire website was created using HTML. HTML is the basic structure of every website.</p>
+                <h3>Basic attributes</h3>
+                <li><p class="attname">p</p> = text</li>
+                <li><p class="attname">h1</p> = large heading</li>
+                <p>In HTML, you always need to close off your code.</p>
+                <p><a href="htmlgenerator.html">Here</a> you can get some examples of an code HTML generator.</p>
+              </article>
+        </section>
+        <footer>
+            <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+            <button class="lovelyday" onclick="history.back()">Go Back</button>
+            <button class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+            <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+            <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+        </footer>
+    </container>
+    <script>
+        function myFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("mySearch");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myMenu");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        function iFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+function css() {
+  var element = document.getElementById("body");
+  element.classList.remove("style.css");
+}
+</script>
+</body>

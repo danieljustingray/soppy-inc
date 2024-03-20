@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+  <LINK href="style.css" rel="stylesheet" type="text/css">
+    
+<html lang="en">
+<title>Vacancies - Soppy Inc</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta charset="utf-8">
+<script src="script.js"></script>
+<style>
+    .offer {
+        background-color: white;
+        color: black;
+        border-color: black;
+        border-width: 2px;
+    }
+</style>
+</head>
+<body>
+<container class="page-contents">
+<body>
+  <script id="replace_with_navbar" src="nav.js"></script>
+<header>
+  <h2>Soppy Inc</h2>
+</header>
+<section class="soppysection">
+  <nav class="soppynav">
+<button type="button" class="lovelydaytime"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button><p id="demo"></p>
+</br>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </nav>
+  <article>
+    <h1>Vacancies</h1>
+    <p>We have one job opening at Soppy Inc.</p>
+    <div class="offer">
+      <h2>Assistant technical writer</h2>
+      <i>0.4 fte | Salary: see below</i>
+      <p>We are looking for someone twice a week who understands XML, HTML and Markdown. <a href="vacancy_javascriptwriter.html">More info</a></p>
+  </div>
+    <p>Interested in any options? Contact <a href="mailto:daniel.gray@soppyinc.nl">daniel.gray@soppyinc.nl</a></p>
+</article>
+</section>
+
+<footer>
+  <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+  <button class="lovelyday" onclick="history.back()">Go Back</button>
+  <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+  <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+  <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+</footer>
+</container>
+</body>
+</html>

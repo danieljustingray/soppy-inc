@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>LBS -> KG - Soppy Inc.</title>
+</head>
+<body>
+<h1>Convert pounds to kilograms</h1>
+<p>
+    <label>Pounds</label>
+    <input id="inputPounds" type="number" placeholder="Pounds" oninput="convertWeight('lbs', this.value)" onchange="convertWeight('lbs', this.value)">
+  </p>
+  <p>
+    <label>Kilograms</label>
+    <input id="inputKilograms" type="number" placeholder="Kilograms" oninput="convertWeight('kg', this.value)" onchange="convertWeight('kg', this.value)">
+  </p>
+  
+  <script>
+    function convertWeight(unit, value) {
+      var poundsInput = document.getElementById("inputPounds");
+      var kilogramsInput = document.getElementById("inputKilograms");
+  
+      if (unit === 'lbs') {
+        var kilograms = (value / 2.2046).toFixed(1);
+        kilogramsInput.value = kilograms;
+      } else if (unit === 'kg') {
+        var pounds = (value * 2.2046).toFixed(1);
+        poundsInput.value = pounds;
+      }
+    }
+  </script>
+  
+      <button onclick="history.back()">Go Back</button>
+</body>

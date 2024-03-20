@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <head>
+    <LINK href="style.css" rel="stylesheet" type="text/css">
+    <title>Soppy Inc</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta charset="utf-8">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <container class="page-contents">
+    <script id="replace_with_navbar" src="nav.js"></script>
+    <header>
+      <h2>Soppy Inc.</h2>
+    </header>
+    <section class="soppysection">
+      <nav class="soppynav">
+        <div class="dropdown" style="float:left;">
+          <button class="dropbtn">Quick links</button>
+            <div class="dropdown-content" style="left:0;">
+              <a href="https://www.instagram.com/soppyinc/" target="blank">Instagram</a>
+              <a href="https://twitter.com/soppyinccom" target="blank">Site updates (twitter)</a>
+              <a href="https://soppyinc.fandom.com/wiki/Soppy_Inc_Wiki" target="blank">Wiki</a>
+              <a href="https://soppyinc.blogspot.com/" target="_blank">Blogpost</a>
+            </div>
+          </div>
+        <br>
+        <button type="button" class="lovelydaytime"
+        onclick="document.getElementById('demo').innerHTML = Date()">
+        Click me to display Date and Time.</button>
+        <p id="demo"></p>
+                <div id="google_translate_element"></div>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      </nav>
+      <article>
+        <h1>About us</h1>
+        <p>At Soppy Inc, we create tools.</p>
+        <p>We are working on <a href="tutorials.html">HTML tutorials</a> so that <b>you</b> can have a start with learning to <abbr title="We are well aware that HTML isn't a programming language. HTML is the portal to start programming">program</abbr>.</p>
+        <p>Read up about version 1.17.1 <a href="changelog.html">here</a>.</p>
+      </article>
+    </section>
+      <footer>
+       <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+       <button class="lovelyday" onclick="history.back()">Go Back</button>
+        <button class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+        <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+       <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+</footer>
+</container>
+</body>
+</html>
