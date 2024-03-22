@@ -1,6 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
+  max-width: 100%;
 }
 
 .navbar {
@@ -35,7 +36,7 @@ h1 {
   box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
   border: none;
   margin-top: 10px;
-  width: 99px;
+  width: auto;
   background-color: rgb(192, 192, 190);
 }
 .topnav {
@@ -75,6 +76,8 @@ nav {
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-width: 30%;
+    max-width: 30%;
 }
 
 nav ul {
@@ -87,21 +90,21 @@ article {
     flex: 4;
     background-color: #f1f1f1;
     min-height: 40vh; 
+    min-width: 70%;
+    max-width: 70%;
 }
-
-/* Clear floats after the columns */
 section::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Style the footer */
 footer {
   background-color: #777;
   padding: 10px;
   text-align: bottom;
   color: white;
+  width: 100%;
 }
 
 @media screen and (max-width: 850px) {

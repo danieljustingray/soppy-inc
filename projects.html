@@ -23,6 +23,7 @@
 <nav>Empty here...</nav>
 </section>
 <footer>
+<nobr>
     <p>Send us a suggestion at info@soppyinc.nl or tweet us @realsoppyinc</p>
     <button type="button" class="lovelydaytime"
 onclick="document.getElementById('demo').innerHTML = Date()">
@@ -32,11 +33,12 @@ Click me to display Date and Time.</button>
 <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
 <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
 <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
-<script>
-function iFunction() {
-var element = document.body;
-element.classList.toggle("dark-mode");
-}
-</script>
+</nobr>
 </footer>
+<script>
+  function iFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  }
+</script>
 </container>

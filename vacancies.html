@@ -24,19 +24,6 @@
   <h2>Soppy Inc</h2>
 </header>
 <section class="soppysection">
-  <nav class="soppynav">
-<button type="button" class="lovelydaytime"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button><p id="demo"></p>
-</br>
-<div id="google_translate_element"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  </nav>
   <article>
     <h1>Vacancies</h1>
     <p>We have one job opening at Soppy Inc.</p>
@@ -47,6 +34,12 @@ function googleTranslateElementInit() {
   </div>
     <p>Interested in any options? Contact <a href="mailto:daniel.gray@soppyinc.nl">daniel.gray@soppyinc.nl</a></p>
 </article>
+<nav class="soppynav">
+  <button type="button" class="lovelydaytime"
+  onclick="document.getElementById('demo').innerHTML = Date()">
+  Click me to display Date and Time.</button><p id="demo"></p>
+  </br>
+</nav>  
 </section>
 
 <footer>
