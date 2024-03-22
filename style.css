@@ -104,10 +104,10 @@ footer {
   color: white;
 }
 
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
+@media screen and (max-width: 850px) {
+  section {
+    display: flex;
+    flex-direction: column;
   }
 }
 .dropbtn {
