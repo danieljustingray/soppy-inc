@@ -1,50 +1,104 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0px;
-  max-width: 100%;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
 }
-
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
-  max-width: 800px;
+header {
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(201, 201, 2);
+    color: black;
+    padding: 10px;
 }
-
-.navbar a {
-  color: #aaa;
-  display: inline-block;
-  font-size: 20px;
-  padding: 10px;
-  text-decoration: none;
+header a {
+    color: black;
 }
-
-.navbar a:hover {
-  color: #ffffff;
+header a:hover {
+    text-decoration: none;
 }
-
+nav {
+    text-align: center;
+    background-color: #333;
+    overflow: hidden;
+    padding: 8px;
+    color: white;
+    font-size: 15px;
+    cursor: default;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+section {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex-grow: 1;
+    min-height: 0;
+}
+article {
+    padding: 20px;
+    flex: 1;
+    background-color: #f1f1f1;
+    min-width: 70%;
+    max-width: 70%;
+}
+aside {
+    background: rgb(196, 196, 196);
+    padding: 20px;
+    flex: 0 0 30%;
+}
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: bottom;
+    color: white;
+    width: 100%;
+}
+a {
+    color: blue;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+button {
+    box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
+    border: none;
+    margin-top: 10px;
+    width: 100px;
+}
+button:hover {
+    background-color: darkgray;
+    color: black;
+}
 h1 {
   color:  black;
 }
-
-.lovelyday { 
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+h1 a:hover {text-decoration: none;}
+button { 
     box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
     border: none;
     margin-top: 10px;
 }
-
-.lovelydaytime {
-  box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
-  border: none;
-  margin-top: 10px;
-  width: auto;
-  background-color: rgb(192, 192, 190);
-}
-.topnav {
+nav {
   overflow: hidden;
   background-color: #333;
 }
-
-.topnav a {
+nav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -52,13 +106,11 @@ h1 {
   text-decoration: none;
   font-size: 17px;
 }
-
-.topnav a:hover {
+nav a:hover {
   text-decoration: underline;  
   color: white;
 }
-
-.topnav a.active {
+nav a.active {
   background-color: #000000;
   color: white;
 }
@@ -69,8 +121,7 @@ header {
   font-size: 40px;
   color: rgba(0, 0, 0, 0.825);
 }
-
-nav {
+aside {
     background: rgb(196, 196, 196);
     padding: 20px;
     flex: 1;
@@ -79,12 +130,10 @@ nav {
     min-width: 30%;
     max-width: 30%;
 }
-
-nav ul {
+aside ul {
   list-style-type: none;
   padding: 0;
 }
-
 article {
     padding: 20px;
     flex: 4;
@@ -98,7 +147,6 @@ section::after {
   display: table;
   clear: both;
 }
-
 footer {
   background-color: #777;
   padding: 10px;
@@ -106,107 +154,46 @@ footer {
   color: white;
   width: 100%;
 }
-
-@media screen and (max-width: 850px) {
-  section {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.dropbtn {
-  box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #000000; color: white;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {
-  background-color: #aaa;
-  color: black;
-}
-
-.page-contents {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  align-content: stretch;
-  box-shadow: 5px 5px 8px #69696d;
-}
-
-.soppysection {
-    display: flex;
-    flex-direction: row;
-}
-
-.jumpits {
-  padding: 100px;
-  flex: 4;
-}
-
-a {
-  color: blue;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-.jumpitdiv {
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(0, 0, 0);
-}
-
-.lovelyday:hover {
-  background-color: darkgray;
-  color: black;
-}
-
-.lovelydaytime:hover {
-  background-color: darkgray;
+footer a {
   color: white;
 }
-.dark-mode {
-  background-color: black;
-}
-.dark-mode {
-  background-color: black;
-}
-.dark-mode article {
-  background-color: black;
+.dark-mode body {
   color: white;
+  background-color: #111111;
 }
-.dark-mode article h1 {
-  color: white;
+.dark-mode header {
+  background-color: rgb(94, 94, 0);
+  color: black;
 }
 .dark-mode nav {
-  background-color: grey;
+  background-color: #555;
 }
-.dark-mode a {color: lightblue;}
-.dark-mode a:hover {color: lightpink;}
+.dark-mode nav a {
+  color: #f2f2f2;
+}
+.dark-mode nav a.active {
+  background-color: #000000;
+}
+.dark-mode aside {
+  background-color: #909090;
+}
+.dark-mode aside ul {
+  color: #f2f2f2;
+}
+.dark-mode article {
+  background-color: #333333;
+  color: white;
+}
+.dark-mode footer {
+  background-color: #555555;
+  color: white;
+}
+.dark-mode footer a {
+  color: white;
+}
+.dark-mode a {
+  color: lightblue;
+}
+.dark-mode aside a {
+  color: blue
+}
