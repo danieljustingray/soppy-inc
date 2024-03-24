@@ -5,7 +5,6 @@ body {
     padding: 0px;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
 }
 header {
     text-align: center;
@@ -22,12 +21,14 @@ header a:hover {
 }
 nav {
     text-align: center;
-    background-color: #333;
     overflow: hidden;
     padding: 8px;
-    color: white;
+    color: #506d51;
     font-size: 15px;
     cursor: default;
+    background-color: linear-gradient(180deg, rgba(99, 102, 104, 0.9) 0%, rgba(69, 71, 71, 0.9) 50.52%, rgba(52, 52, 52, 0.9) 53.12%, rgba(0, 0, 0, 0.9) 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
+    gap: 15px;
 }
 nav a {
     text-decoration: none;
@@ -44,9 +45,9 @@ section {
 article {
     padding: 20px;
     flex: 1;
-    background-color: #f1f1f1;
     min-width: 70%;
     max-width: 70%;
+    background-image: url("images/background.jpg");
 }
 aside {
     background: rgb(196, 196, 196);
