@@ -72,6 +72,22 @@ footer {
     flex: 0 0 100%;
     background-image: url("images/footer.png");
 }
+@media only screen and (max-width: 600px) {
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color:rgb(212, 212, 0);
+    background-image: none;
+  }
+  article {
+    width: 100%;
+  }
+  aside {
+    width: 100%;
+  }
+}
 a {
     color: blue;
     text-decoration: none;
