@@ -7,11 +7,13 @@ body {
     flex-direction: column;
 }
 header {
-    text-align: center;
     text-decoration: none;
-    background-color: rgb(201, 201, 2);
-    color: black;
     padding: 10px;
+    background-image: url("images/background.png");
+    padding: 30px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.825);
+    font-size: 30px;
 }
 header a {
     color: black;
@@ -24,9 +26,9 @@ nav {
     overflow: hidden;
     padding: 8px;
     color: #506d51;
-    font-size: 15px;
+    font-size: 19px;
     cursor: default;
-    background-color: linear-gradient(180deg, rgba(99, 102, 104, 0.9) 0%, rgba(69, 71, 71, 0.9) 50.52%, rgba(52, 52, 52, 0.9) 53.12%, rgba(0, 0, 0, 0.9) 100%);
+    background-color: #333;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
     gap: 15px;
 }
@@ -47,23 +49,28 @@ article {
     flex: 1;
     min-width: 70%;
     max-width: 70%;
-    background-image: url("images/background.jpg");
+    background-color: #f2f2f2;
 }
 aside {
     background: rgb(196, 196, 196);
     padding: 20px;
     flex: 0 0 30%;
+    background: rgb(196, 196, 196);
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 aside ul {
     list-style-type: none;
     padding: 0;
 }
 footer {
-    background-color: #777;
     padding: 10px;
     text-align: bottom;
-    color: white;
-    width: 100%;
+    color: black;
+    flex: 0 0 100%;
+    background-image: url("images/footer.png");
 }
 a {
     color: blue;
@@ -95,68 +102,17 @@ button {
     border: none;
     margin-top: 10px;
 }
-nav {
-  overflow: hidden;
-  background-color: #333;
-}
-nav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 2px;
-  text-decoration: none;
-  font-size: 17px;
-}
 nav a:hover {
   text-decoration: underline;  
   color: white;
-}
-nav a.active {
-  background-color: #000000;
-  color: white;
-}
-header {
-  background-color: rgba(255, 255, 0, 0.611);
-  padding: 30px;
-  text-align: center;
-  font-size: 40px;
-  color: rgba(0, 0, 0, 0.825);
-}
-aside {
-    background: rgb(196, 196, 196);
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 30%;
-    max-width: 30%;
-}
-aside ul {
-  list-style-type: none;
-  padding: 0;
-}
-article {
-    padding: 20px;
-    flex: 4;
-    background-color: #f1f1f1;
-    min-height: 40vh; 
-    min-width: 70%;
-    max-width: 70%;
 }
 section::after {
   content: "";
   display: table;
   clear: both;
 }
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: bottom;
-  color: white;
-  width: 100%;
-}
 footer a {
-  color: white;
+  color: black;
 }
 .dark-mode body {
   color: white;
