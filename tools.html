@@ -21,16 +21,22 @@
 <a href="rostermaker.html" target="_blank">School roster maker</a><br>
 <a href="live-time.html" target="_blank">Live clock</a>
 </article>
-<aside>...</aside>
+<aside>  <button type="button" class="lovelydaytime"
+  onclick="document.getElementById('demo').innerHTML = Date()">
+  Click me to display Date and Time.</button>
+  <p id="demo"></p>
+  </aside>
 </section>
 <footer>
-   <p>Send us a suggestion at info@soppyinc.nl or tweet us @realsoppyinc</p>
-  <button type="button" class="lovelydaytime"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
-<p id="demo"></p>
-<button class="lovelyday" onclick="history.back()">Go Back</button>
-<button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
-</footer>
-</container>
+  <button class="lovelyday" onclick="history.back()">Go Back</button>
+  <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+<button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+<button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+var element = document.body;
+element.classList.toggle("dark-mode");
+}
+</script>
+</footer></container>
 </body>

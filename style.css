@@ -1,6 +1,6 @@
 body {
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI';
   margin: 0px;
   padding: 0px;
   display: flex;
@@ -28,7 +28,7 @@ nav {
   color: #506d51;
   font-size: 19px;
   cursor: default;
-  background-color: #333;
+  background-image: url("images/nav.png");
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
   gap: 15px;
 }
@@ -97,6 +97,7 @@ button {
   border: none;
   margin-top: 10px;
   width: 100px;
+  text-wrap: wrap;
 }
 
 button:hover {
