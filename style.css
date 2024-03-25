@@ -1,85 +1,80 @@
 body {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
 }
 header {
-    text-decoration: none;
-    padding: 10px;
-    background-image: url("images/background.png");
-    padding: 30px;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.825);
-    font-size: 30px;
+  text-decoration: none;
+  padding: 10px;
+  background-image: url("images/background.png");
+  padding: 30px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.825);
+  font-size: 30px;
 }
 header a {
-    color: black;
+  color: black;
 }
 header a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 nav {
-    text-align: center;
-    overflow: hidden;
-    padding: 8px;
-    color: #506d51;
-    font-size: 19px;
-    cursor: default;
-    background-color: #333;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
-    gap: 15px;
+  text-align: center;
+  overflow: hidden;
+  padding: 8px;
+  color: #506d51;
+  font-size: 19px;
+  cursor: default;
+  background-color: #333;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
+  gap: 15px;
 }
 nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
 }
 section {
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    flex-grow: 1;
-    min-height: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex-grow: 1;
+  min-height: 0;
 }
 article {
-    padding: 20px;
-    flex: 1;
-    min-width: 70%;
-    max-width: 70%;
-    background-color: #f2f2f2;
+  padding: 20px;
+  flex: 1;
+  min-width: 70%;
+  background-color: #f2f2f2;
 }
 aside {
-    background: rgb(196, 196, 196);
-    padding: 20px;
-    flex: 0 0 30%;
-    background: rgb(196, 196, 196);
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  background: rgb(196, 196, 196);
+  padding: 20px;
+  flex: 0 0 30%;
+  background: rgb(196, 196, 196);
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 aside ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 footer {
-    padding: 10px;
-    text-align: bottom;
-    color: black;
-    flex: 0 0 100%;
-    background-image: url("images/footer.png");
+  padding: 10px;
+  text-align: bottom;
+  color: black;
+  flex: 0 0 100%;
+  background-image: url("images/footer.png");
 }
 @media only screen and (max-width: 600px) {
   section {
     display: flex;
     flex-direction: column;
-  }
-  header {
-    background-color:rgb(212, 212, 0);
-    background-image: none;
   }
   article {
     width: 100%;
@@ -89,84 +84,102 @@ footer {
   }
 }
 a {
-    color: blue;
-    text-decoration: none;
+  color: blue;
+  text-decoration: none;
 }
+
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
+
 button {
-    box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
-    border: none;
-    margin-top: 10px;
-    width: 100px;
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
+  border: none;
+  margin-top: 10px;
+  width: 100px;
 }
+
 button:hover {
-    background-color: darkgray;
-    color: black;
+  background-color: darkgray;
+  color: black;
 }
+
 h1 {
-  color:  black;
+  color: black;
 }
+
 h1 a {
   color: black;
   text-decoration: none;
 }
-h1 a:hover {text-decoration: none;}
-button { 
-    box-shadow: inset 0.2em 0.2em 0.2em 0 rgb(255 255 255 / 50%), inset -0.2em -0.2em 0.2em 0 rgb(0 0 0 / 50%);
-    border: none;
-    margin-top: 10px;
+
+h1 a:hover {
+  text-decoration: none;
 }
+
 nav a:hover {
-  text-decoration: underline;  
+  text-decoration: underline;
   color: white;
 }
+
 section::after {
   content: "";
   display: table;
   clear: both;
 }
+
 footer a {
   color: black;
 }
+
 .dark-mode body {
   color: white;
   background-color: #111111;
 }
+
 .dark-mode header {
   background-color: rgb(94, 94, 0);
   color: black;
 }
+
 .dark-mode nav {
   background-color: #555;
 }
+
 .dark-mode nav a {
   color: #f2f2f2;
 }
+
 .dark-mode nav a.active {
   background-color: #000000;
 }
+
 .dark-mode aside {
   background-color: #909090;
 }
+
 .dark-mode aside ul {
   color: #f2f2f2;
 }
+
 .dark-mode article {
   background-color: #333333;
   color: white;
 }
+
 .dark-mode footer {
   background-color: #555555;
   color: white;
 }
+
 .dark-mode footer a {
   color: white;
 }
+
 .dark-mode a {
   color: lightblue;
 }
+
 .dark-mode aside a {
   color: blue
 }
