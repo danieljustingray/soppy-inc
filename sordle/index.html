@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sordle</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+        margin: 10px;
+    }
+    nav {
+        margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+  <container class="page-contents">
+    <script id="replace_with_navbar" src="../nav.js"></script>
+    <h1>Sordle</h1>
+    <p>Sordle is a <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a> resembling game where you can enter a 5-letter word each day and try to guess the word.</p>
+    <li>- means the letter isn't included</li>
+    <li>+ means the letter is included but not on that spot</li>
+    <li>The letter there means that letter's there</li>
+    <li>Tip: Use the scratchpad!</li>
+    <p>Guess the five-letter word!</p>
+    <div class="guess-container">
+      <input type="text" id="guessInput" maxlength="5" placeholder="Enter your guess">
+      <button id="guessButton">Guess</button>
+    </div>
+    <div class="result-container">
+      <div id="result"></div>
+    </div>
+    <p>You have <span id="attemptsLeft">6</span> attempts left.</p>
+    <div id="pastGuesses"></div>
+    <textarea id="scratchpad" rows="4" cols="40" placeholder="Use this space as a scratchpad..."></textarea>
+</container>
+  <script src="script.js"></script>
+</body>
+</html>
