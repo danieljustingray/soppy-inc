@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const wordList = ['words']; //word of today
+    const wordList = ['cheap']; //word of today
     const secretWord = pickRandomWord(wordList);
     let attemptsLeft = 6;
     let guessedWord = '';
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
       if (guess === secretWord) {
-        updateResultDisplay('Congratulations! You guessed the word. (words)');
+        updateResultDisplay('Congratulations! You guessed the word. (cheap)');
         guessButton.disabled = true;
       } else {
         const result = getResult(guess);
