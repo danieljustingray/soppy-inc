@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Quadratic Equation Solver</h2>
+        <input type="number" id="a" placeholder="Enter coefficient a">
+        <input type="number" id="b" placeholder="Enter coefficient b">
+        <input type="number" id="c" placeholder="Enter coefficient c">
+        <button onclick="solveQuadratic()">Solve</button>
+        <button onclick="clearFields()">Clear</button>
+        <div id="result"></div>
+    </div>
+    <button onclick="history.back()">Go Back</button>
+    <script>
+        function solveQuadratic() {
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+
+            var discriminant = b*b - 4*a*c;
+            var result;
+
+            if (discriminant > 0) {
+                var root1 = (-b + Math.sqrt(discriminant)) / (2*a);
+                var root2 = (-b - Math.sqrt(discriminant)) / (2*a);
+                result = "Root 1: " + root1 + "<br>Root 2: " + root2;
+            } else if (discriminant == 0) {
+                var root = -b / (2*a);
+                result = "Double Root: " + root;
+            } else {
+                result = "No real roots";
+            }
+
+            document.getElementById('result').innerHTML = result;
+        }
+
+        function clearFields() {
+            document.getElementById('a').value = '';
+            document.getElementById('b').value = '';
+            document.getElementById('c').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
+
