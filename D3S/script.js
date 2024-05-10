@@ -3,7 +3,8 @@ const words = [
     "Albert Heijn", "Burenburg", "AzollI22", "CSS", "Farel", 
     "Bliss (XP)", "Google", "Lessontable", "Ruggedroll'd", "Magister", 
     "Rostermaker", "Poker Face", "Lady A", "Frutiger Aero", "Ample Time",
-    "Independent woman"
+    "Independent woman", "grotesque", "Weird al Yankovic", "Amish paradise",
+    "White 'n Nerdy", "Minesweeper", "Internet explorer", "Minecraft"
   ];
   
   const wordList = document.getElementById("wordList");
