@@ -7,7 +7,6 @@ body {
   flex-direction: column;
   background-image: url(background.png);
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
 }
 header {
@@ -123,22 +122,19 @@ button {
   cursor: pointer;
   outline: none;
   width: 100px;  
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px; 
   position: relative;  
   color: #fff;
   font-size: 15px; 
   line-height: 12px; 
   margin: 15px;
-  border-radius: 30px;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
   text-wrap: wrap;
   overflow: hidden; 
   background-color: #a4af32;
-  background-image: linear-gradient(0% 0%, 0% 90%, from(#1b5a9b), to(#6cbfff));
-  border: 2px solid #447dbc;	 
+  background-image: linear-gradient(rgb(128, 128, 0),rgb(229, 238, 144));
+  border: none;	 
 }
 button::before {
   content: '';
@@ -148,14 +144,10 @@ button::before {
   height: 1px;
   width: 105px;  
   padding: 8px 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
-}
+  background-color: rgba(255, 255, 255, 0.2);}
 button:hover {  
-  text-shadow: #3d79be 1px 2px 2px; 
-  background-color: #3c83c6;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#165698), to(#7ec7ff));
-  border: 2px solid #366dab;	
+  text-shadow: greenyellow 1px 2px 2px;
+  background-image: linear-gradient(rgb(229, 238, 144),rgb(128, 128, 0));
 }
 h1 {
   color: black;
