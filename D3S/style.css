@@ -30,9 +30,9 @@ h1 {
     flex-direction: row;
 }
 div#wordList > div  {
-    position: relative;
+	position: relative;
 	display: inline-block;
-	padding: 15px 15px;
+	padding: 15px 25px;
 	background-color: rgb(0, 60, 128));
 	background-image: linear-gradient(rgb(0, 60, 128),rgb(144, 235, 238));
     border-radius: 3px;
@@ -41,10 +41,11 @@ div#wordList > div  {
     border: none;
     text-decoration: none;
 	color: #fff;
-	font-size: 20px;
+	font-size: 25px;
 	font-family: sans-serif;
 	font-weight: 100;
     margin: 5px;
+    text: wrap;
 }
 button {
 	position: relative;
@@ -63,7 +64,7 @@ button {
 	font-family: sans-serif;
 	font-weight: 100;
 }
-button:after{
+button:after, div#wordList > div:after{
 	content: '';
 	position: absolute;
 	top: 2px;
