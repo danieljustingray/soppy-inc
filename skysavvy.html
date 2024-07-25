@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Soppy Inc</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta charset="utf-8">
+    <style>
+        #weather {
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <container class="page-contents">
+      <script id="replace_with_navbar" src="nav.js"></script>
+    <header>
+      <h1>Soppy Inc.</h1>
+    </header>
+    <section>
+      <article>
+        <h1>Enter a city below to find out what the weather is:</h1>
+        <form id="weatherForm">
+            <input type="text" id="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        <div id="weather">
+            <h2>Weather in <span id="cityName"></span></h2>
+            <p>Temperature: <span id="temperature"></span> °C</p>
+            <p>Humidity: <span id="humidity"></span>%</p>
+            <p>Description: <span id="description"></span></p>
+        </div>
+      </article>
+      <aside>
+        <button type="button" class="lovelydaytime"
+        onclick="document.getElementById('demo').innerHTML = Date()">
+        Click me to display Date and Time.</button>
+        <p id="demo"></p>
+        </aside>
+    </section>
+      <footer>
+       <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+       <button class="lovelyday" onclick="history.back()">Go Back</button>
+        <button class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+        <button onclick="iFunction()">Toggle dark mode</button>
+       <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+<script>
+function iFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+<script src="skysavvy.js"></script>
+</footer>
+</container>
+</body>
+</html>
