@@ -163,7 +163,7 @@ footer {
 }
 button {
   border-radius: none;
-  border: none;
+  border: 2px ridge grey;
   background-color: #ddd;
 }
 button:hover {
@@ -172,7 +172,12 @@ button:hover {
   cursor: pointer;
 }
 input {
-  border: none;
+  border: 2px ridge grey;
+  background-image: linear-gradient(to bottom right, white, #ddd);
+}
+input:hover {
+  background-image: linear-gradient(to top left, white, #ddd);
+  cursor: pointer;
 }
 @media only screen and (max-width: 600px) {
   section {
