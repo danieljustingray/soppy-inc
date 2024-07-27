@@ -105,6 +105,12 @@ a:hover {
     text-align: center;
     padding: 14px 16px;
   }
+  body {
+    background-image: url('backgroundmobile.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+  }
 }
 
 section {
