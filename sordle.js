@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const wordList = ['flows']; //word of today
+  const wordList = ['teach']; //word of today
   const secretWord = pickRandomWord(wordList);
   let attemptsLeft = 6;
   let guessedWord = '';
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     if (guess === secretWord) {
-      updateResultDisplay(`Congratulations! You guessed the word. (flows) <a href="https://www.google.com/search?q=flows+meaning&rlz=1C1CHBD_nlNL1051NL1051&oq=flows+meaning&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyBwgBEAAYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQgyNDE1ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8" target="_blank">Meaning of flows</a>`);
+      updateResultDisplay(`Congratulations! You guessed the word. (teach) <a href="https://dictionary.cambridge.org/dictionary/english/teach" target="blank">Meaning of teach</a>`);
       guessButton.disabled = true;
       // Add event listener to the link
       const link = resultDisplay.querySelector('a');

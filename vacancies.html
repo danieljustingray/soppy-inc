@@ -1,58 +1,53 @@
 <!DOCTYPE html>
 <head>
-  <LINK href="style.css" rel="stylesheet" type="text/css">
-    
-<html lang="en">
-<title>Vacancies - Soppy Inc</title>
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-<meta charset="utf-8">
-<script src="script.js"></script>
-<style>
-    .offer {
-        background-color: white;
-        color: black;
-        border-color: black;
-        border-width: 2px;
-    }
-</style>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Vacancies - Soppy Inc</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <meta charset="utf-8">
+  <script src="script.js"></script>
+  <style>
+      .offer {
+          background-color: white;
+          color: black;
+          border-color: black;
+          border-width: 2px;
+      }
+  </style>
 </head>
 <body>
-<container class="page-contents">
-<body>
-  <script id="replace_with_navbar" src="nav.js"></script>
-<header>
-  <h2>Soppy Inc</h2>
-</header>
-<section class="soppysection">
-  <article>
-    <h1>Vacancies</h1>
-    <p>We have no job openings at Soppy Inc.</p>
-    <div class="offer">
-      <p>n/a error</p>
-    </div>
-    <p>Interested in any options? Contact <a href="mailto:daniel.gray@soppyinc.nl">daniel.gray@soppyinc.nl</a></p>
-</article>
-<aside>
-  <button type="button" class="lovelydaytime"
-  onclick="document.getElementById('demo').innerHTML = Date()">
-  Click me to display Date and Time.</button><p id="demo"></p>
-  </br>
-</aside>  
-</section>
-
-<footer>
-  <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
-  <button class="lovelyday" onclick="history.back()">Go Back</button>
-  <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
-  <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
-  <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
-<script>
-function iFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-</footer>
-</container>
+  <container class="page-contents">
+    <script id="replace_with_navbar" src="nav.js"></script>
+  <header><h2>Vacancies</h2></header>
+  <section class="soppysection">
+    <article>
+      <h1>Vacancies</h1>
+      <p>We have no job openings at Soppy Inc.</p>
+      <div class="offer">
+        <p>n/a error</p>
+      </div>
+      <p>Interested in any options? Contact <a href="mailto:daniel.gray@soppyinc.nl">daniel.gray@soppyinc.nl</a></p>
+    </article>
+    <aside>
+      <button type="button" class="lovelydaytime"
+      onclick="document.getElementById('demo').innerHTML = Date()">
+      Click me to display Date and Time.</button><p id="demo"></p>
+      </br>
+    </aside>  
+  </section>
+  <footer>
+    <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+    <button class="lovelyday" onclick="history.back()">Go Back</button>
+    <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+    <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+    <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+  <script>
+  function iFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+  </script>
+  </footer>
+  </container>
 </body>
 </html>

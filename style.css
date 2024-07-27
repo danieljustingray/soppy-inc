@@ -164,6 +164,7 @@ footer {
 button {
   border-radius: none;
   border: 2px ridge grey;
+  color: black;
   background-color: #ddd;
 }
 button:hover {
