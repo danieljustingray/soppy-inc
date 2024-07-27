@@ -6,3 +6,12 @@ fetch('nav.html')
     newelem.innerHTML = text;
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
+
+function toggleMenu() {
+    var x = document.getElementById("mobileLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
