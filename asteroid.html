@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Soppy Inc. Asteroid Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    #gameContainer {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      border: 2px solid #FFD700;
+      overflow: hidden;
+    }
+    #gameCanvas {
+      background-color: #111;
+    }
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #FFD700;
+      font-size: 20px;
+    }
+    #level {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #FFD700;
+      font-size: 20px;
+    }
+    #gameOver {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFD700;
+      font-size: 36px;
+      text-align: center;
+      display: none;
+    }
+    #startScreen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #FFD700;
+    }
+    button {
+      background-color: #FFD700;
+      color: black;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #F0C000;
+    }
+    .difficulty-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .difficulty-button {
+      width: 120px;
+      text-align: center;
+    }
+    .level-1 {
+      background-color: #FFD700;
+      color: black;
+    }
+    .level-1:hover {
+      background-color: #F0C000;
+    }
+    .level-2 {
+      background-color: #FFA500;
+      color: black;
+    }
+    .level-2:hover {
+      background-color: #F09000;
+    }
+    .level-3 {
+      background-color: #FF8C00;
+      color: black;
+    }
+    .level-3:hover {
+      background-color: #F08000;
+    }
+    .instructions {
+      text-align: center;
+      margin: 20px;
+      font-size: 14px;
+    }
+    .active {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #FFD700;
+    }
+    
+    /* Instructions button */
+    #instructionsButton {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #FFD700;
+      color: black;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    #instructionsButton:hover {
+      background-color: #F0C000;
+    }
+    
+    /* Instructions modal */
+    #instructionsModal {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 500px;
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+      padding: 20px;
+      color: #FFD700;
+      z-index: 100;
+    }
+    #instructionsModal h2 {
+      color: #FFD700;
+      text-align: center;
+      margin-top: 0;
+    }
+    #instructionsModal ul {
+      text-align: left;
+    }
+    #instructionsModal li {
+      margin-bottom: 10px;
+    }
+    #instructionsModal .key {
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      margin: 0 3px;
+    }
+    #closeInstructions {
+      background-color: #FFD700;
+      margin-top: 20px;
+      color: black;
+    }
+    #closeInstructions:hover {
+      background-color: #F0C000;
+    }
+    .modal-section {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 15px;
+    }
+    .modal-section:last-child {
+      border-bottom: none;
+    }
+    .difficulty-explanation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .difficulty-item {
+      text-align: center;
+      width: 30%;
+    }
+    .difficulty-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .level-indicator {
+      width: 50px;
+      height: 20px;
+      margin: 0 auto;
+      border-radius: 3px;
+    }
+    /* Close button for instructions */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #FFD700;
+      color: black;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-button:hover {
+      background-color: #F0C000;
+    }
+    /* Back to website button */
+    #backButton {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: #FFD700;
+      color: black;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #backButton:hover {
+      background-color: #F0C000;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer">
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <div id="score">Score: 0</div>
+    <div id="level">Level: 1</div>
+    <button id="instructionsButton">Instructions</button>
+    <button onclick="location.href='https://soppyinc.com';">Back to SoppyInc.com</button>
+    <div id="gameOver">
+      <div>Game Over!</div>
+      <div id="finalScore">Score: 0</div>
+      <button id="restartButton">Play Again</button>
+    </div>
+    <div id="startScreen">
+      <h2>Soppy Inc. Asteroid Game</h2>
+      <div class="instructions">
+        <p>Move the spaceship with arrow keys or WASD to avoid asteroids</p>
+        <p>How long can you survive?</p>
+      </div>
+      <div class="difficulty-text">Select Difficulty:</div>
+      <div class="difficulty-buttons">
+        <button id="level1Button" class="difficulty-button level-1 active">Level 1<br><small>Normal</small></button>
+        <button id="level2Button" class="difficulty-button level-2">Level 2<br><small>Hard</small></button>
+        <button id="level3Button" class="difficulty-button level-3">Level 3<br><small>Expert</small></button>
+      </div>
+      <button id="startButton">Start Game</button>
+    </div>
+    
+    <!-- Instructions Modal -->
+    <div id="instructionsModal">
+      <div class="close-button" id="closeInstructionsX">Close</div>
+      <h2>How to Play</h2>
+      
+      <div class="modal-section">
+        <h3>Controls:</h3>
+        <ul>
+          <li><span class="key">←</span> <span class="key">→</span> <span class="key">↑</span> <span class="key">↓</span> Arrow keys or <span class="key">W</span> <span class="key">A</span> <span class="key">S</span> <span class="key">D</span> to move the spaceship</li>
+          <li>Move quickly to dodge incoming asteroids</li>
+          <li>Stay within the game boundaries</li>
+        </ul>
+      </div>
+      
+      <div class="modal-section">
+        <h3>Gameplay:</h3>
+        <ul>
+          <li>Your objective is to survive as long as possible</li>
+          <li>Asteroids fall from the top of the screen at varying speeds</li>
+          <li>Your score increases the longer you survive</li>
+          <li>The game becomes progressively harder over time</li>
+          <li>If you hit an asteroid, the game ends</li>
+        </ul>
+      </div>
+      
+      <div class="modal-section">
+        <h3>Difficulty Levels:</h3>
+        <div class="difficulty-explanation">
+          <div class="difficulty-item">
+            <div class="difficulty-name">Level 1</div>
+            <div class="level-indicator" style="background-color: #FFD700;"></div>
+            <div>Normal speed</div>
+          </div>
+          <div class="difficulty-item">
+            <div class="difficulty-name">Level 2</div>
+            <div class="level-indicator" style="background-color: #FFA500;"></div>
+            <div>Faster</div>
+          </div>
+          <div class="difficulty-item">
+            <div class="difficulty-name">Level 3</div>
+            <div class="level-indicator" style="background-color: #FF8C00;"></div>
+            <div>Extreme</div>
+          </div>
+        </div>
+        <p>Higher difficulty levels start with faster asteroids and more frequent spawning.</p>
+      </div>
+      
+      <div class="modal-section">
+        <h3>Tips:</h3>
+        <ul>
+          <li>Small movements are often better than large ones</li>
+          <li>Try to anticipate where asteroids will be</li>
+          <li>Don't stay in one place for too long</li>
+          <li>Practice on Level 1 before attempting higher difficulties</li>
+        </ul>
+      </div>
+      
+      <button id="closeInstructions">Close Instructions</button>
+    </div>
+  </div>
+
+  <script>
+    // Game variables
+    let canvas, ctx;
+    let score = 0;
+    let isGameRunning = false;
+    let animationFrameId;
+    let difficultyLevel = 1;
+    
+    // Player ship
+    const ship = {
+      x: 300,
+      y: 350,
+      width: 30,
+      height: 30,
+      speed: 5,
+      dx: 0,
+      dy: 0
+    };
+    
+    // Asteroids array
+    let asteroids = [];
+    let asteroidSpeed = 2;
+    let asteroidSpawnRate = 50; // Lower is faster
+    let frameCount = 0;
+    
+    // Difficulty settings
+    const difficultySettings = {
+      1: { // Normal
+        asteroidSpeed: 2,
+        asteroidSpawnRate: 50,
+        speedIncreaseRate: 1000,
+        speedIncreaseAmount: 0.3,
+        spawnRateDecreaseAmount: 2
+      },
+      2: { // Hard
+        asteroidSpeed: 3.5,
+        asteroidSpawnRate: 35,
+        speedIncreaseRate: 800,
+        speedIncreaseAmount: 0.5,
+        spawnRateDecreaseAmount: 3
+      },
+      3: { // Expert
+        asteroidSpeed: 5,
+        asteroidSpawnRate: 20,
+        speedIncreaseRate: 600,
+        speedIncreaseAmount: 0.8,
+        spawnRateDecreaseAmount: 4
+      }
+    };
+    
+    // Controls state
+    const keys = {
+      ArrowLeft: false,
+      ArrowRight: false,
+      ArrowUp: false,
+      ArrowDown: false,
+      a: false,
+      d: false,
+      w: false,
+      s: false
+    };
+    
+    // Initialize the game
+    function init() {
+      canvas = document.getElementById('gameCanvas');
+      ctx = canvas.getContext('2d');
+      
+      // Set up event listeners
+      document.addEventListener('keydown', keyDown);
+      document.addEventListener('keyup', keyUp);
+      document.getElementById('startButton').addEventListener('click', startGame);
+      document.getElementById('restartButton').addEventListener('click', restartGame);
+      
+      // Difficulty selection buttons
+      document.getElementById('level1Button').addEventListener('click', () => setDifficulty(1));
+      document.getElementById('level2Button').addEventListener('click', () => setDifficulty(2));
+      document.getElementById('level3Button').addEventListener('click', () => setDifficulty(3));
+      
+      // Instructions modal
+      document.getElementById('instructionsButton').addEventListener('click', showInstructions);
+      document.getElementById('closeInstructions').addEventListener('click', hideInstructions);
+      document.getElementById('closeInstructionsX').addEventListener('click', hideInstructions);
+    
+      // Draw the initial screen
+      drawShip();
+    }
+    
+    // Show instructions
+    function showInstructions() {
+      document.getElementById('instructionsModal').style.display = 'block';
+      
+      // Pause the game if it's running
+      if (isGameRunning) {
+        isGameRunning = false;
+        cancelAnimationFrame(animationFrameId);
+      }
+    }
+    
+    // Hide instructions
+    function hideInstructions() {
+      document.getElementById('instructionsModal').style.display = 'none';
+      
+      // Resume the game if it was running
+      if (!isGameRunning && !document.getElementById('gameOver').style.display === 'block' && 
+          document.getElementById('startScreen').style.display === 'none') {
+        isGameRunning = true;
+        gameLoop();
+      }
+    }
+    
+    // Go back to website
+    function goBack() {
+      // This would normally navigate to the website
+      // For this demo, we'll just alert the user
+      alert("This would navigate back to SoppyInc.com");
+      // In a real implementation, you would use:
+      // window.location.href = "https://soppyinc.com";
+    }
+    
+    // Set difficulty level
+    function setDifficulty(level) {
+      difficultyLevel = level;
+      
+      // Update UI for selected difficulty
+      document.getElementById('level1Button').classList.remove('active');
+      document.getElementById('level2Button').classList.remove('active');
+      document.getElementById('level3Button').classList.remove('active');
+      document.getElementById(`level${level}Button`).classList.add('active');
+      
+      // Update level display
+      document.getElementById('level').textContent = `Level: ${level}`;
+    }
+    
+    // Start the game
+    function startGame() {
+      document.getElementById('startScreen').style.display = 'none';
+      isGameRunning = true;
+      score = 0;
+      asteroids = [];
+      ship.x = 300;
+      ship.y = 350;
+      
+      // Apply difficulty settings
+      const settings = difficultySettings[difficultyLevel];
+      asteroidSpeed = settings.asteroidSpeed;
+      asteroidSpawnRate = settings.asteroidSpawnRate;
+      
+      updateScore();
+      gameLoop();
+    }
+    
+    // Restart after game over
+    function restartGame() {
+      document.getElementById('gameOver').style.display = 'none';
+      document.getElementById('startScreen').style.display = 'flex';
+    }
+    
+    // Main game loop
+    function gameLoop() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Update game state
+      moveShip();
+      drawShip();
+      
+      // Spawn and update asteroids
+      frameCount++;
+      if (frameCount % asteroidSpawnRate === 0) {
+        spawnAsteroid();
+      }
+      
+      updateAsteroids();
+      
+      // Check collisions
+      if (checkCollisions()) {
+        endGame();
+        return;
+      }
+      
+      // Get current difficulty settings
+      const settings = difficultySettings[difficultyLevel];
+      
+      // Increase difficulty over time
+      if (frameCount % 500 === 0) {
+        if (asteroidSpawnRate > 15) {
+          asteroidSpawnRate -= settings.spawnRateDecreaseAmount;
+        }
+        if (frameCount % settings.speedIncreaseRate === 0) {
+          asteroidSpeed += settings.speedIncreaseAmount;
+        }
+      }
+      
+      // Increment score
+      if (frameCount % 10 === 0) {
+        score++;
+        updateScore();
+      }
+      
+      // Continue the game loop
+      if (isGameRunning) {
+        animationFrameId = requestAnimationFrame(gameLoop);
+      }
+    }
+    
+    // Update ship position based on key state
+    function moveShip() {
+      // Reset movement
+      ship.dx = 0;
+      ship.dy = 0;
+      
+      // Set direction based on keys
+      if (keys.ArrowLeft || keys.a) ship.dx = -ship.speed;
+      if (keys.ArrowRight || keys.d) ship.dx = ship.speed;
+      if (keys.ArrowUp || keys.w) ship.dy = -ship.speed;
+      if (keys.ArrowDown || keys.s) ship.dy = ship.speed;
+      
+      // Update position
+      ship.x += ship.dx;
+      ship.y += ship.dy;
+      
+      // Keep ship on screen
+      if (ship.x < 0) ship.x = 0;
+      if (ship.x > canvas.width - ship.width) ship.x = canvas.width - ship.width;
+      if (ship.y < 0) ship.y = 0;
+      if (ship.y > canvas.height - ship.height) ship.y = canvas.height - ship.height;
+    }
+    
+    // Draw the player's ship
+    function drawShip() {
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath();
+      ctx.moveTo(ship.x + ship.width / 2, ship.y);
+      ctx.lineTo(ship.x, ship.y + ship.height);
+      ctx.lineTo(ship.x + ship.width, ship.y + ship.height);
+      ctx.closePath();
+      ctx.fill();
+    }
+    
+    // Create a new asteroid
+    function spawnAsteroid() {
+      const size = Math.random() * 20 + 15; // Random size between 15 and 35
+      const x = Math.random() * (canvas.width - size);
+      
+      // Apply current difficulty level to asteroid speed
+      const speedVariation = Math.random() * 2;
+      const currentSpeed = asteroidSpeed + speedVariation;
+      
+      asteroids.push({
+        x: x,
+        y: -size,
+        size: size,
+        speed: currentSpeed
+      });
+    }
+    
+    // Update all asteroids
+    function updateAsteroids() {
+      for (let i = 0; i < asteroids.length; i++) {
+        const asteroid = asteroids[i];
+        
+        // Move asteroid down
+        asteroid.y += asteroid.speed;
+        
+        // Draw asteroid
+        ctx.fillStyle = '#FFA500';
+        ctx.beginPath();
+        ctx.arc(asteroid.x + asteroid.size / 2, asteroid.y + asteroid.size / 2, 
+                asteroid.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Remove asteroids that are off screen
+        if (asteroid.y > canvas.height) {
+          asteroids.splice(i, 1);
+          i--;
+        }
+      }
+    }
+    
+    // Check for collisions between ship and asteroids
+    function checkCollisions() {
+      // Ship hitbox (slightly smaller than visual ship for better gameplay)
+      const shipHitbox = {
+        x: ship.x + 5,
+        y: ship.y + 5,
+        width: ship.width - 10,
+        height: ship.height - 10
+      };
+      
+      for (let i = 0; i < asteroids.length; i++) {
+        const asteroid = asteroids[i];
+        
+        // Asteroid hitbox
+        const asteroidHitbox = {
+          x: asteroid.x,
+          y: asteroid.y,
+          radius: asteroid.size / 2
+        };
+        
+        // Check for collision with simplified circle to rectangle collision
+        const closestX = Math.max(shipHitbox.x, Math.min(asteroidHitbox.x + asteroidHitbox.radius, 
+                                  shipHitbox.x + shipHitbox.width));
+        const closestY = Math.max(shipHitbox.y, Math.min(asteroidHitbox.y + asteroidHitbox.radius, 
+                                  shipHitbox.y + shipHitbox.height));
+        
+        const distanceX = asteroidHitbox.x + asteroidHitbox.radius - closestX;
+        const distanceY = asteroidHitbox.y + asteroidHitbox.radius - closestY;
+        
+        const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+        
+        if (distance < asteroidHitbox.radius) {
+          return true; // Collision detected
+        }
+      }
+      
+      return false;
+    }
+    
+    // End the game
+    function endGame() {
+      isGameRunning = false;
+      cancelAnimationFrame(animationFrameId);
+      document.getElementById('finalScore').textContent = `Score: ${score}`;
+      document.getElementById('gameOver').style.display = 'block';
+    }
+    
+    // Update score display
+    function updateScore() {
+      document.getElementById('score').textContent = `Score: ${score}`;
+    }
+    
+    // Key event handlers
+    function keyDown(e) {
+      if (e.key in keys) {
+        keys[e.key] = true;
+        e.preventDefault();
+      }
+    }
+    
+    function keyUp(e) {
+      if (e.key in keys) {
+        keys[e.key] = false;
+        e.preventDefault();
+      }
+    }
+    
+    // Initialize the game when the page loads
+    window.addEventListener('load', init);
+  </script>
+</body>
+</html>

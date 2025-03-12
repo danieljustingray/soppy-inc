@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News - Soppy Inc</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="page-contents">
+    <div class="page-contents">
+        <script id="replace_with_navbar" src="nav.js"></script>
+        <header>
+            <h1>News</h1>
+        </header>
+        <section>
+            <article>
+                <h1>New game!</h1>
+                <p>We have been busy with a new game at Soppy Inc. This new game is called <a href="asteroid.html">The Asteroid game.</a></p>
+            </article>
+            <aside>
+                <p>Lorem ipsum.</p>
+            </aside>
+        </section>
+        <footer>
+            <p>Send us a suggestion at <a href="mailto:info@soppyinc.nl">info@soppyinc.nl</a> or tweet us @realsoppyinc</p>
+            <div class="btnftr">
+                <button class="lovelyday" onclick="history.back()">Go Back</button>&nbsp;&nbsp;
+                <button class="lovelyday" onclick="window.location.reload();">Refresh Page</button>&nbsp;&nbsp;
+                <button onclick="iFunction()">Toggle dark mode</button>&nbsp;&nbsp;
+                <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>&nbsp;&nbsp;
+            </div>
+            <script>
+                function iFunction() {
+                    var element = document.body;
+                    element.classList.toggle("dark-mode");
+                }
+            </script>
+        </footer>
+    </div>
+</body>
+</html>

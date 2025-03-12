@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Custom CSS Injector",
+    "version": "1.0",
+    "description": "Applies custom CSS to a specific website.",
+    "permissions": ["scripting", "activeTab"],
+    "host_permissions": ["*://*/*"],
+    "action": {
+      "default_title": "Apply Custom CSS",
+      "default_icon": {
+        "16": "icon.png"
+      }
+    }
+  }
+  

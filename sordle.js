@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const wordList = ['teach']; //word of today
+  const wordList = ['queen']; //word of today
   const secretWord = pickRandomWord(wordList);
   let attemptsLeft = 6;
   let guessedWord = '';
