@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     if (guess === secretWord) {
-      updateResultDisplay(`Congratulations! You guessed the word. (teach) <a href="https://dictionary.cambridge.org/dictionary/english/teach" target="blank">Meaning of teach</a>`);
+      updateResultDisplay(`Congratulations! You guessed the word. (queen) <a href="https://dictionary.cambridge.org/dictionary/english/queen" target="blank">Meaning of queen</a>`);
       guessButton.disabled = true;
       // Add event listener to the link
       const link = resultDisplay.querySelector('a');
