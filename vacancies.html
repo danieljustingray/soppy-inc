@@ -9,7 +9,7 @@
   <style>
   </style>
 </head>
-<body>
+<body class="page-contents">
   <container class="page-contents">
     <script id="replace_with_navbar" src="nav.js"></script>
   <header><h2>Vacancies</h2></header>
@@ -37,12 +37,14 @@
       </br>
     </aside>  
   </section>
-  <footer>
+  <footer>  
     <p>Send us a suggestion at <a href="mailto:info@soppyinc.com">info@soppyinc.com</a> or tweet us @realsoppyinc</p>
-    <button class="lovelyday" onclick="history.back()">Go Back</button>
-    <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
-    <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
-    <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+    <div class="btnftr">
+      <button class="lovelyday" onclick="history.back()">Go Back</button>
+      <button  class="lovelyday" onClick="window.location.reload();">Refresh Page</button>
+      <button class="lovelyday" onclick="iFunction()">Toggle dark mode</button>
+      <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>
+    </div>
   <script>
   function iFunction() {
     var element = document.body;

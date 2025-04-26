@@ -169,17 +169,15 @@ input {
   border: 2px ridge grey;
   background-image: linear-gradient(to bottom right, white, #ddd);
 }
-
 input:hover {
   background-image: linear-gradient(to top left, white, #ddd);
   cursor: pointer;
 }
-
 .btnftr {
   display: flex;
   flex-direction: row;
+  margin: 10px;
 }
-
 @media only screen and (max-width: 600px) {
   section {
     display: flex;
