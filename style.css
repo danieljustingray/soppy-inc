@@ -1,33 +1,45 @@
+:root {
+  --text-color: black;
+  --fontfamily: 'alata', sans-serif;
+  --background: rgb(192, 192, 192);
+  --btnback: linear-gradient(180deg, yellow 0%, #9d9d46 100%);
+  --btnbackHover: rgb(177, 184, 0);
+  --link: blue;
+}
+.darkmode {
+  --text-color: whitesmoke;
+  --fontfamily: 'alata', sans-serif;
+  --background: black;
+  --btnback: linear-gradient(180deg, #9d9d46 0%, #575726 100%);
+  --btnbackHover: rgb(177, 184, 0);
+  --link: lightblue;
+}
 body {
-  color: black;
-  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  font-family: var(--fontfamily);
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  background: rgb(192, 192, 192);
+  background: var(--background);
 }
-body.dark-mode {
-  background: #121212;
-  color: #ffffff;
+@font-face {
+  font-family: 'alata';
+  src: url(alata-regular.ttf);
 }
 header {
   text-decoration: none;
   padding: 10px;
   text-align: center;
-  color: rgba(0, 0, 0, 0.825);
+  color: var(--text-color);
   font-size: 30px;
   background: rgba(255, 255, 255, 0.29);
   backdrop-filter: blur(6.6px);
   -webkit-backdrop-filter: blur(6.6px);
   margin: 9px;
 }
-body.dark-mode header {
-  background: rgba(0, 0, 0, 0.29);
-  color: white;
-}
 header a {
-  color: black;
+  color: var(--text-color);
 }
 header a:hover {
   text-decoration: none;
@@ -38,9 +50,6 @@ nav {
   position: sticky;
   z-index: 100000;
 }
-body.dark-mode nav {
-  background: linear-gradient(to bottom, #121212, #333333, #000000);
-}
 nav a {
   float: left;
   color: #f2f2f2;
@@ -50,7 +59,7 @@ nav a {
 }
 nav a:hover {
   background-color: #ddd;
-  color: black;
+  color: var(--text-color);
 }
 nav .fa {
   font-size: 19px;
@@ -66,7 +75,6 @@ nav .fa {
   color: white;
   text-decoration: none;
 }
-
 .mobile-links a:hover {
   background-color: #ddd;
   color: black;
@@ -77,11 +85,11 @@ nav .fa {
   cursor: pointer;
 }
 a {
-  color: blue;
+  color: var(--link);
   text-decoration: none;
 }
 a:hover {
-  color: #000000;
+  color: var(--text-color);
 }
 section {
   display: flex;
@@ -90,7 +98,6 @@ section {
   flex-grow: 1;
   margin: 10px;
 }
-
 article {
   padding: 20px;
   flex: 1;
@@ -101,11 +108,6 @@ article {
   margin-left: 0;
   min-width: 70%;
 }
-
-body.dark-mode article {
-  background: rgba(0, 0, 0, 0.29);
-}
-
 aside {
   padding: 20px;
   flex: 1;
@@ -116,20 +118,13 @@ aside {
   margin-left: 0;
   min-width: 30%;
 }
-
-body.dark-mode aside {
-  background: rgba(0, 0, 0, 0.29);
-}
-
 aside ul {
   list-style-type: none;
   padding: 0;
 }
-
 footer {
   padding: 10px;
   text-align: bottom;
-  color: black;
   flex: 0 0 100%;
   background: rgba(255, 255, 255, 0.29);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -137,21 +132,16 @@ footer {
   -webkit-backdrop-filter: blur(6.6px);
   margin: 9px;
 }
-
-body.dark-mode footer {
-  background: rgba(0, 0, 0, 0.29);
-  color: white;
-}
 button {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
-  font-family: Arial, sans-serif;
+  font-family: 'alata', sans-serif;
   border-radius: 6px;
   border: none;
-  color: black;
-  background: linear-gradient(180deg, yellow 0%, #9d9d46 100%);
+  color: var(--text-color);
+  background: var(--btnback);
   cursor: pointer;
   background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
@@ -162,7 +152,7 @@ button:focus {
   outline: 0;
 }
 button:hover {
-  background-color: yellow !important;
+  background-color: var(--btnbackHover) !important;
   background-image: none;
 }
 input {
@@ -183,25 +173,53 @@ input:hover {
     display: flex;
     flex-direction: column;
   }
-
   article {
     width: 100%;
   }
-
   aside {
     width: 100%;
   }
-
   nav a {
     display: none;
   }
-
   nav .icon {
     display: block;
   }
-
   .btnftr {
     display: flex;
     flex-direction: column;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: rgb(215, 215, 215);
+  }
+  a {
+    color: lightblue
+  }
+  a:hover {
+    color: rgb(215, 215, 215);
+  }
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: 'alata', sans-serif;
+    border-radius: 6px;
+    border: none;
+    color: var(--text-color);
+    background: linear-gradient(180deg, #9d9d46 0%, #575726 100%);
+    cursor: pointer;
+    background-origin: border-box;
+    box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+    touch-action: manipulation;
+  }
+  button:hover {
+    background: #575726 !important;
+  }
+  h1 {
+    color: whitesmoke;
   }
 }

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const wordList = ['chats']; //word of today
+  const wordList = ['pings']; //word of today
   const secretWord = pickRandomWord(wordList);
   let attemptsLeft = 6;
   let guessedWord = '';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateResultDisplay(result) {
-    resultDisplay.innerHTML = result; // Using innerHTML to render the link
+    resultDisplay.innerHTML = result;
   }
 
   function updateAttemptsLeftDisplay() {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     if (guess === secretWord) {
-      updateResultDisplay(`Congratulations! You guessed the word. (chats) <a href="https://dictionary.cambridge.org/dictionary/english/chat" target="blank">Meaning of chat(s)</a>`);
+      updateResultDisplay(`Congratulations! You guessed the word. (pings) <a href="https://dictionary.cambridge.org/dictionary/english/ping" target="blank">Meaning of ping(s)</a>`);
       guessButton.disabled = true;
       // Add event listener to the link
       const link = resultDisplay.querySelector('a');

@@ -235,8 +235,11 @@
       background-color: #F0C000;
     }
   </style>
+  <script src="darkmode.js" defer></script>
 </head>
-<body>
+<body class="page-contents">
+  <button onclick="toggleMode()"><i class="fa fa-moon-o"></i></button>
+  <script id="replace_with_navbar" src="nav.js"></script>
   <div id="gameContainer">
     <canvas id="gameCanvas" width="600" height="400"></canvas>
     <div id="score">Score: 0</div>

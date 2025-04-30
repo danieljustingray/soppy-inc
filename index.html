@@ -7,12 +7,14 @@
     <link href="style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="darkmode.js" defer></script>
 </head>
-<body class="page-contents">
+<body>
     <div class="page-contents">
         <script id="replace_with_navbar" src="nav.js"></script>
         <header>
             <h1>Soppy Inc.</h1>
+            <button onclick="toggleMode()"><i class="fa fa-moon-o"></i></button>
         </header>
         <section>
             <article>
@@ -41,7 +43,6 @@
             <div class="btnftr">
                 <button class="lovelyday" onclick="history.back()">Go Back</button>&nbsp;&nbsp;
                 <button class="lovelyday" onclick="window.location.reload();">Refresh Page</button>&nbsp;&nbsp;
-                <button onclick="iFunction()">Toggle dark mode</button>&nbsp;&nbsp;
                 <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>&nbsp;&nbsp;
             </div>
             <script>
