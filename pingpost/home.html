@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Feed</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h2>Welcome to Soppy Social</h2>
+  <form action="php/post.php" method="POST" enctype="multipart/form-data">
+    <textarea name="content" placeholder="What's on your mind?"></textarea><br>
+    <input type="file" name="image"><br>
+    <button type="submit">Post</button>
+  </form>
+  <hr>
+  <div id="feed"></div>
+  <a href="php/logout.php">Logout</a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
