@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Soppy Inc</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="darkmode.js" defer></script>
+</head>
+<body>
+    <div class="page-contents">
+        <script id="replace_with_navbar" src="nav.js"></script>
+        <header>
+            <h1>login</h1>
+            <button onclick="toggleMode()"><i class="fa fa-moon-o"></i></button>
+        </header>
+        <section>
+            <article>
+                <h1>Register an account</h1>
+                <div id="form">
+                    <input type="text" id="name" placeholder="Name">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <button id="submit">Register</button>
+                    <p id="switch">Already have an account? <a href="#" id="toggle">Login here</a></p>
+                </div>
+                <div id="welcome" style="display: none;">
+                    <h2>Welcome, <span id="welcome-name"></span>!</h2>
+                    <button onclick="logout()">Log out</button>
+                </div>
+            </article>
+            <aside>
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/soppyinc/" target="_blank">Instagram</a></li>
+                    <li><a href="https://twitter.com/soppyinccom" target="_blank">Twitter</a></li>
+                    <li><a href="https://soppyinc.blogspot.com/" target="_blank">Blogpost</a></li>
+                </ul>
+                <br>
+                <button type="button" class="lovelydaytime" onclick="document.getElementById('demo').innerHTML = Date()">
+                    Click me to display Date and Time.
+                </button>
+                <p id="demo"></p>
+            </aside>
+        </section>
+        <footer>
+            <p>Send us a suggestion at <a href="mailto:info@soppyinc.com">info@soppyinc.com</a></p>
+            <div class="btnftr">
+                <button class="lovelyday" onclick="history.back()">Go Back</button>&nbsp;&nbsp;
+                <button class="lovelyday" onclick="window.location.reload();">Refresh Page</button>&nbsp;&nbsp;
+                <button onclick="document.location='portal/index.htm'" class="lovelyday">Employee portal</button>&nbsp;&nbsp;
+            </div>
+            <script>
+                function iFunction() {
+                    var element = document.body;
+                    element.classList.toggle("dark-mode");
+                }
+            </script>
+        </footer>
+    </div>
+</body>
+</html>
