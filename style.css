@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'alata';
+  src: url(alata-regular.ttf);
+}
+
 :root {
   --text-color: black;
   --fontfamily: 'alata', sans-serif;
@@ -5,6 +10,7 @@
   --btnback: linear-gradient(180deg, yellow 0%, #9d9d46 100%);
   --btnbackHover: rgb(177, 184, 0);
   --link: blue;
+  --semanticbackground: #ddd;
 }
 .darkmode {
   --text-color: whitesmoke;
@@ -13,6 +19,7 @@
   --btnback: linear-gradient(180deg, #9d9d46 0%, #575726 100%);
   --btnbackHover: rgb(177, 184, 0);
   --link: lightblue;
+  --semanticbackground: rgb(75, 75, 75);
 }
 body {
   color: var(--text-color);
@@ -23,19 +30,13 @@ body {
   flex-direction: column;
   background: var(--background);
 }
-@font-face {
-  font-family: 'alata';
-  src: url(alata-regular.ttf);
-}
 header {
   text-decoration: none;
   padding: 10px;
   text-align: center;
   color: var(--text-color);
   font-size: 30px;
-  background: rgba(255, 255, 255, 0.29);
-  backdrop-filter: blur(6.6px);
-  -webkit-backdrop-filter: blur(6.6px);
+  background-color: var(--semanticbackground);
   margin: 9px;
 }
 header a {
@@ -93,30 +94,22 @@ a:hover {
 }
 section {
   display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 20px;
   margin: 10px;
+}
+article, aside {
+  flex: 1 1 300px;
+  padding: 20px;
+  background-color: var(--semanticbackground);
+  word-wrap: break-word;
+  box-sizing: border-box;
 }
 article {
-  padding: 20px;
-  flex: 1;
-  background: rgba(255, 255, 255, 0.29);
-  backdrop-filter: blur(6.6px);
-  -webkit-backdrop-filter: blur(6.6px);
-  margin: 10px;
-  margin-left: 0;
-  min-width: 70%;
+  flex: 2 1 500px;
 }
 aside {
-  padding: 20px;
-  flex: 1;
-  background: rgba(255, 255, 255, 0.29);
-  backdrop-filter: blur(6.6px);
-  -webkit-backdrop-filter: blur(6.6px);
-  margin: 10px;
-  margin-left: 0;
-  min-width: 30%;
+  flex: 1 1 250px;
 }
 aside ul {
   list-style-type: none;
@@ -124,28 +117,24 @@ aside ul {
 }
 footer {
   padding: 10px;
-  text-align: bottom;
-  flex: 0 0 100%;
-  background: rgba(255, 255, 255, 0.29);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6.6px);
-  -webkit-backdrop-filter: blur(6.6px);
+  text-align: center;
+  background-color: var(--semanticbackground);
   margin: 9px;
 }
 button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 14px;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 10px auto;
   font-family: 'alata', sans-serif;
   border-radius: 6px;
   border: none;
   color: var(--text-color);
   background: var(--btnback);
   cursor: pointer;
-  background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
   touch-action: manipulation;
+  display: block;
 }
 button:focus {
   box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
@@ -165,19 +154,14 @@ input:hover {
 }
 .btnftr {
   display: flex;
-  flex-direction: row;
-  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
 }
 @media only screen and (max-width: 900px) {
   section {
-    display: flex;
     flex-direction: column;
-  }
-  article {
-    width: 100%;
-  }
-  aside {
-    width: 100%;
   }
   nav a {
     display: none;
@@ -186,8 +170,10 @@ input:hover {
     display: block;
   }
   .btnftr {
-    display: flex;
     flex-direction: column;
+  }
+  article, aside, footer {
+    flex: none;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -195,30 +181,15 @@ input:hover {
     background-color: black;
     color: rgb(215, 215, 215);
   }
+
   a {
-    color: lightblue
+    color: lightblue;
   }
+
   a:hover {
     color: rgb(215, 215, 215);
   }
-  button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 6px 14px;
-    font-family: 'alata', sans-serif;
-    border-radius: 6px;
-    border: none;
-    color: var(--text-color);
-    background: linear-gradient(180deg, #9d9d46 0%, #575726 100%);
-    cursor: pointer;
-    background-origin: border-box;
-    box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
-    touch-action: manipulation;
-  }
-  button:hover {
-    background: #575726 !important;
-  }
+
   h1 {
     color: whitesmoke;
   }
